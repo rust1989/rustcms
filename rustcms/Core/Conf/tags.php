@@ -16,7 +16,10 @@ return array(
     ),
     'app_begin'=>array(
         'ReadHtmlCache', // 读取静态缓存
+<<<<<<< HEAD
 		'CheckLang',
+=======
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
     ),
     'route_check'=>array(
         'CheckRoute', // 路由检测

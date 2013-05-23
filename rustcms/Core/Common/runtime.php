@@ -41,11 +41,17 @@ if(!IS_CLI) {
             //CGI/FASTCGI模式下
             $_temp  = explode('.php',$_SERVER['PHP_SELF']);
             define('_PHP_FILE_',  rtrim(str_replace($_SERVER['HTTP_HOST'],'',$_temp[0].'.php'),'/'));
+<<<<<<< HEAD
             
         }else {
             define('_PHP_FILE_',    rtrim($_SERVER['SCRIPT_NAME'],'/'));
         }
         
+=======
+        }else {
+            define('_PHP_FILE_',    rtrim($_SERVER['SCRIPT_NAME'],'/'));
+        }
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
     }
     if(!defined('__ROOT__')) {
         // 网站URL根目录

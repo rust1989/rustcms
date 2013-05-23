@@ -205,10 +205,15 @@ function alias_import($alias, $classfile='') {
  * D函数用于实例化Model 格式 项目://分组/模块
  +----------------------------------------------------------
  * @param string name Model资源地址
+<<<<<<< HEAD
+=======
+ * @param string $layer 业务层名称
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
   +----------------------------------------------------------
  * @return Model
   +----------------------------------------------------------
  */
+<<<<<<< HEAD
 function D($name='') {
     if(empty($name)) return new Model;
     static $_model = array();
@@ -226,6 +231,35 @@ function D($name='') {
     }else {
         $model  = new Model(basename($name));
     }
+=======
+function D($name='',$layer='') {
+    if(empty($name)) return new Model;
+    static $_model = array();
+    $layer          =   $layer?$layer:C('DEFAULT_M_LAYER');
+    if(isset($_model[$name]))
+        return $_model[$name];
+    if(strpos($name,'://')) {// 指定项目
+        $name   =  str_replace('://','/'.$layer.'/',$name);
+    }else{
+        $name   =  C('DEFAULT_APP').'/'.$layer.'/'.$name;
+    }
+    
+    if(isset($_model[$name])) return $_model[$name];
+    $path=explode("/", $name);
+    if(count($path)>3&&1==C("APP_GROUP_MODE")){//独立分组
+      $baseUrl=$path[0]=='@'?dirname(BASE_LIB_PATH):APP_PATH.'../'.$path[0].'/'.C('APP_GROUP_PATH').'/';
+      import($path[2].'/'.$path[1].'/'.$path[3].$layer,$baseUrl);
+    }else{
+      import($name.$layer);
+    }
+    $class   =   basename($name.$layer);
+    if(class_exists($class)) {
+        $model = new $class(basename($name));
+    }else {
+        $model  = new Model(basename($name));
+    }
+   
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
     $_model[$name]  =  $model;
     return $model;
 }
@@ -258,10 +292,16 @@ function M($name='', $tablePrefix='',$connection='') {
  * A函数用于实例化Action 格式：[项目://][分组/]模块
   +----------------------------------------------------------
  * @param string name Action资源地址
+<<<<<<< HEAD
+=======
+ * @param string $layer 控制层名称
+ * @param boolean $common 是否公共目录
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
   +----------------------------------------------------------
  * @return Action
   +----------------------------------------------------------
  */
+<<<<<<< HEAD
 function A($name) {
     static $_action = array();
     if(isset($_action[$name]))
@@ -273,6 +313,31 @@ function A($name) {
     }
     import($name.'Action');
     $class   =   basename($name.'Action');
+=======
+function A($name,$layer='',$common=false) {
+    static $_action = array();
+    $layer      =   $layer?$layer:C('DEFAULT_C_LAYER');
+    
+    if(isset($_action[$name]))
+        return $_action[$name];
+    
+    if(strpos($name,'://')) {// 指定项目
+        $name   =  str_replace('://','/'.$layer.'/',$name);
+    }else{
+        $name   =  '@/'.$layer.'/'.$name;
+    }
+    $path=explode("/",$name);
+    if(count($path)>3&& 1==C('APP_GROUP_MODE')){//独立分组
+    	$baseUrl=$path[0]=='@'?dirname($path):APP_PATH.'../'.$path[0].'/'.C('APP_GROUP_PATH').'/';
+    	import($path[2].$path[1].$path[3].$layer,$baseUrl);
+    }else if($common){
+     import(str_replace('@/','',$path).$layer,LIB_PATH);
+    }else{
+    import($name.$layer);
+    }
+    
+    $class   =   basename($name.$layer);
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
     if(class_exists($class,false)) {
         $action = new $class();
         $_action[$name]  =  $action;

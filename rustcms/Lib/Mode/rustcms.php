@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 return array(
    'core'         =>   array(
@@ -9,4 +10,9 @@ return array(
         CORE_PATH.'Core/View.class.php',  // 视图类
     ),		 
 );
+=======
+<?php 
+
+
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
 ?>
