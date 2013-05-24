@@ -1,6 +1,6 @@
 <?php
 //开户调试模式
-define("APP_DEBUG",false);
+define("APP_DEBUG",true);
 //网站当前路径
 define("SITE_PATH", getcwd());
 //项目名称
@@ -11,6 +11,10 @@ define("APP_PATH",SITE_PATH."/rustcms/");
 define("RUNTIME_PATH",SITE_PATH."/runtime/");
 //定义模版路径
 define("TEMPLATE_PATH",APP_PATH."Template/");
+//模式名称
+define("MODE_NAME",'rustcms');
+//模式路径
+define('MODE_PATH',APP_PATH.'Lib/Mode/');
 //版本
 define("RUSTCMS_VERSION",'20130521');
 //大小写忽略处理

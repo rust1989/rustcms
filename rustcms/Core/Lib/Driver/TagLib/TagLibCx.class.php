@@ -607,7 +607,7 @@ class TagLibCx extends TagLib {
         return $this->_import($attr,$content,true);
     }
 
-    // import别名使用 导入css文件 <css file="__PUBLIC__/Css/Base.css" />
+    // import别名使用 导入css文件 <css file="__CSS__/Base.css" />
     public function _css($attr,$content) {
         return $this->_import($attr,$content,true,'css');
     }

@@ -13,8 +13,7 @@ $config=array(
 		'APP_SUB_DOMAIN_RULES'  => array(), // 子域名部署规则
 		'APP_SUB_DOMAIN_DENY'   => array(), //  子域名禁用列表
 		'APP_GROUP_LIST'        => 'Contents,Member,Admin',      // 项目分组设定,多个组之间用逗号分隔,例如'Home,Admin'
-		'APP_GROUP_MODE' => 1, // 分组模式 0 普通分组 1 独立分组，本项目不允许使用普通分组
-		'APP_GROUP_PATH' => 'Modules', // 分组目录 独立分组模式下面有效
+        'APP_GROUP_PATH'      =>'Modules',
 		
 		/* Cookie设置 */
 		'COOKIE_EXPIRE'         => 3600,    // Coodie有效期
@@ -26,7 +25,7 @@ $config=array(
 		'DEFAULT_APP'           => '@',     // 默认项目名称，@表示当前项目
 		'DEFAULT_LANG'          => 'zh-cn', // 默认语言
 		'DEFAULT_THEME'    => '',	// 默认模板主题名称
-		'DEFAULT_GROUP'         => 'Home',  // 默认分组
+		'DEFAULT_GROUP'         => 'Contents',  // 默认分组
 		'DEFAULT_MODULE'        => 'Index', // 默认模块名称
 		'DEFAULT_ACTION'        => 'index', // 默认操作名称
 		'DEFAULT_CHARSET'       => 'utf-8', // 默认输出编码

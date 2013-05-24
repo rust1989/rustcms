@@ -205,38 +205,27 @@ function alias_import($alias, $classfile='') {
  * D函数用于实例化Model 格式 项目://分组/模块
  +----------------------------------------------------------
  * @param string name Model资源地址
- * @param string $layer 业务层名称
   +----------------------------------------------------------
  * @return Model
   +----------------------------------------------------------
  */
-function D($name='',$layer='') {
+function D($name='') {
     if(empty($name)) return new Model;
     static $_model = array();
-    $layer          =   $layer?$layer:C('DEFAULT_M_LAYER');
     if(isset($_model[$name]))
         return $_model[$name];
     if(strpos($name,'://')) {// 指定项目
-        $name   =  str_replace('://','/'.$layer.'/',$name);
+        $name   =  str_replace('://','/Model/',$name);
     }else{
-        $name   =  C('DEFAULT_APP').'/'.$layer.'/'.$name;
+        $name   =  C('DEFAULT_APP').'/Model/'.$name;
     }
-    
-    if(isset($_model[$name])) return $_model[$name];
-    $path=explode("/", $name);
-    if(count($path)>3&&1==C("APP_GROUP_MODE")){//独立分组
-      $baseUrl=$path[0]=='@'?dirname(BASE_LIB_PATH):APP_PATH.'../'.$path[0].'/'.C('APP_GROUP_PATH').'/';
-      import($path[2].'/'.$path[1].'/'.$path[3].$layer,$baseUrl);
-    }else{
-      import($name.$layer);
-    }
-    $class   =   basename($name.$layer);
+    import($name.'Model');
+    $class   =   basename($name.'Model');
     if(class_exists($class)) {
-        $model = new $class(basename($name));
+        $model = new $class();
     }else {
         $model  = new Model(basename($name));
     }
-   
     $_model[$name]  =  $model;
     return $model;
 }
@@ -269,35 +258,21 @@ function M($name='', $tablePrefix='',$connection='') {
  * A函数用于实例化Action 格式：[项目://][分组/]模块
   +----------------------------------------------------------
  * @param string name Action资源地址
- * @param string $layer 控制层名称
- * @param boolean $common 是否公共目录
   +----------------------------------------------------------
  * @return Action
   +----------------------------------------------------------
  */
-function A($name,$layer='',$common=false) {
+function A($name) {
     static $_action = array();
-    $layer      =   $layer?$layer:C('DEFAULT_C_LAYER');
-    
     if(isset($_action[$name]))
         return $_action[$name];
-    
     if(strpos($name,'://')) {// 指定项目
-        $name   =  str_replace('://','/'.$layer.'/',$name);
+        $name   =  str_replace('://','/Action/',$name);
     }else{
-        $name   =  '@/'.$layer.'/'.$name;
+        $name   =  '@/Action/'.$name;
     }
-    $path=explode("/",$name);
-    if(count($path)>3&& 1==C('APP_GROUP_MODE')){//独立分组
-    	$baseUrl=$path[0]=='@'?dirname($path):APP_PATH.'../'.$path[0].'/'.C('APP_GROUP_PATH').'/';
-    	import($path[2].$path[1].$path[3].$layer,$baseUrl);
-    }else if($common){
-     import(str_replace('@/','',$path).$layer,LIB_PATH);
-    }else{
-    import($name.$layer);
-    }
-    
-    $class   =   basename($name.$layer);
+    import($name.'Action');
+    $class   =   basename($name.'Action');
     if(class_exists($class,false)) {
         $action = new $class();
         $_action[$name]  =  $action;

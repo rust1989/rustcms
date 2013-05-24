@@ -41,7 +41,34 @@ class App {
         load_ext_file();
         // URL调度
         Dispatcher::dispatch();
-
+        
+        
+        //定义当前请求的系统常量
+        define("NOW_TIME",$_SERVER['REQUEST_TIME']);
+        define("REQUEST_METHOD",$_SERVER['REQUEST_METHOD']);
+        define("IS_GET",REQUEST_METHOD=='GET'?true:false);
+        define("IS_POST",REQUEST_METHOD=='POST'?true:false);
+        define("IS_PUT",REQUEST_METHOD=='PUT'?true:false);
+        define("IS_DELETE",REQUEST_METHOD=='DELETE'?true:false);
+        define('IS_AJAX',((isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') || !empty($_POST[C('VAR_AJAX_SUBMIT')]) || !empty($_GET[C('VAR_AJAX_SUBMIT')])) ? true : false);
+        
+        // URL调度结束标签
+        tag('url_dispatch');
+        //页面压宿输出
+        if(C("OUTPUT_ENCODE")){
+          $zlib=ini_get("zlib.output_compression");
+          if(empty($zlib)) ob_start("ob_gzhandler");
+        }
+        //系统变量安全过滤
+        if(C('VAR_FILTERS')){
+        	$filters=explode(',',C('VAR_FILTERS'));
+        	foreach ($filters as $filter){
+        	  array_walk_recursive($_GET,$filter);//对数组每个元素应用回调函数，跟array_walk的区别是，如果元素也是数组，会递归到更深入去
+        	  array_walk_recursive($_POST,$filter);	
+        	}
+        }
+        	
+        
         if(defined('GROUP_NAME')) {
             // 加载分组配置文件
             if(is_file(CONF_PATH.GROUP_NAME.'/config.php'))
@@ -61,17 +88,27 @@ class App {
                 $templateSet = cookie('think_template');
             }
             // 主题不存在时仍改回使用默认主题
-            if(!is_dir(TMPL_PATH.$templateSet))
-                $templateSet = C('DEFAULT_THEME');
-            cookie('think_template',$templateSet);
+            
+            if(!in_array($templateSet,explode(',',C('THEME_LIST')))){
+            	$templateSet =  C('DEFAULT_THEME');
+            }
+            cookie('think_template',$templateSet,864000);
+            
         }
         /* 模板相关目录常量 */
         define('THEME_NAME',   $templateSet);                  // 当前模板主题名称
         $group   =  defined('GROUP_NAME')?GROUP_NAME.'/':'';
+        if(1==C("APP_GROUP_MODE")){//独立分组
+        	define('THEME_PATH',BASE_LIB_PATH.basename(TMPL_PATH).'/'.(THEME_NAME?THEME_NAME.'/':''));
+        	define('APP_TMPL_PATH',__ROOT__.'/'.APP_NAME.(APP_NAME?'/':'').C('APP_GROUP_PATH').'/'.$group.(THEME_NAME?THEME_NAME.'/':''));
+        }else{
         define('THEME_PATH',   TMPL_PATH.$group.(THEME_NAME?THEME_NAME.'/':''));
         define('APP_TMPL_PATH',__ROOT__.'/'.APP_NAME.(APP_NAME?'/':'').basename(TMPL_PATH).'/'.$group.(THEME_NAME?THEME_NAME.'/':''));
         C('TEMPLATE_NAME',THEME_PATH.MODULE_NAME.(defined('GROUP_NAME')?C('TMPL_FILE_DEPR'):'/').ACTION_NAME.C('TMPL_TEMPLATE_SUFFIX'));
+        }
         C('CACHE_PATH',CACHE_PATH.$group);
+        //动态配置TMPL_EXCEPTION_FILE 改为绝对路径
+        C('TMPL_EXCEPTION_FILE',realpath(C('TMPL_EXCEPTION_FILE')));
         return ;
     }
 
@@ -92,7 +129,7 @@ class App {
             $module =  false;
         }else{
             //创建Action控制器实例
-            $group =  defined('GROUP_NAME') ? GROUP_NAME.'/' : '';
+            $group =  defined('GROUP_NAME')&& C('APP_GROUP_MODE')==0 ? GROUP_NAME.'/' : '';
             $module  =  A($group.MODULE_NAME);
         }
 
@@ -120,20 +157,72 @@ class App {
                 }
             }
         }
-        //获取当前操作名
-        $action = ACTION_NAME;
-        // 获取操作方法名标签
-        tag('action_name',$action);
-        if (method_exists($module,'_before_'.$action)) {
-            // 执行前置操作
-            call_user_func(array(&$module,'_before_'.$action));
+        // 获取当前操作名 支持动态路由
+        $action = C('ACTION_NAME')?C('ACTION_NAME'):ACTION_NAME;
+        C('TEMPLATE_NAME',THEME_PATH.MODULE_NAME.C('TMPL_FILE_DEPR').$action.C('TMPL_TEMPLATE_SUFFIX'));
+        $action .=  C('ACTION_SUFFIX');
+        
+        
+        try{
+        	if(!preg_match('/^[A-Za-z](\w)*$/', $action)){
+        		//非法操作
+        		throw new ReflectionException();
+        	}
+        	//执行当前操作
+        	$method=new ReflectionMethod($module, $action);
+        	if($method->isPublic()){
+        		$class=new ReflectionClass($module);
+        		//前置操作
+        		if($class->hasMethod("_before_".$action)){
+        			$before=$class->getMethod("_before_".$action);
+        			if($before->isPublic()){
+        				$before->invoke($module);
+        			}
+        		}
+        		//URL参数绑定检测
+        		if(C('URL_PARAMS_BIND')&& $method->getNumberOfParameters()>0){
+        			switch($_SERVER['REQUEST_METHOD']){
+        				case 'POST':
+        					$vars=array_merge($_GET,$_POST);
+        				break;
+        				case 'PUT':
+        					parse_str(file_get_contents('php://input'),$vars);
+        				break;
+        				default:
+        				 $vars=$_GET;
+        			}
+        			$params=$method->getParameters();
+        			foreach ($params as $param){
+        				$name=$param->getName();
+        				if(isset($vars[$name])){
+        					$args[]=$vars[$name];
+        				}else if($param->isDefaultValueAvailable()){
+        					$args[]=$param->getDefaultValue();
+        				}else{
+        					throw_exception(L('_PARAM_ERROR_').':'.$name);
+        				}
+        			}
+        			$method->invokeArgs($module, $args);
+        			
+        			// 后置操作
+        			if($class->hasMethod('_after_'.$action)) {
+        				$after =   $class->getMethod('_after_'.$action);
+        				if($after->isPublic()) {
+        					$after->invoke($module);
+        				}
+        			}
+        		}else{
+        			$method->invoke($module);
+        		}
+        	}else{
+        		throw new ReflectionException();
+        	}
+        }catch(ReflectionException $e){
+        	// 方法调用发生异常后 引导到__call方法处理
+        	$method=new ReflectionMethod($module,'__call');
+        	$method->invokeArgs($module,array($action,''));
         }
-        //执行当前操作
-        call_user_func(array(&$module,$action));
-        if (method_exists($module,'_after_'.$action)) {
-            //  执行后缀操作
-            call_user_func(array(&$module,'_after_'.$action));
-        }
+        
         return ;
     }
 
