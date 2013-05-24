@@ -1,7 +1,7 @@
 <?php
 class BaseAction extends AppframeAction{
-	public function __initialize(){
-		parent::__initialize();
+	function _initialize(){
+		parent::_initialize();
 		define('IS_ADMIN',false);
 		$this->initModel();
 		//全局模版变量

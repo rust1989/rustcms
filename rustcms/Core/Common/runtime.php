@@ -24,7 +24,7 @@ define('THINK_RELEASE', '20120323');
 
 //   系统信息
 if(version_compare(PHP_VERSION,'5.4.0','<') ) {
-    @set_magic_quotes_runtime (0);
+    @set_magic_quotes_runtime (0);//关闭魔术引号
     define('MAGIC_QUOTES_GPC',get_magic_quotes_gpc()?True:False);
 }
 define('IS_CGI',substr(PHP_SAPI, 0,3)=='cgi' ? 1 : 0 );
@@ -41,17 +41,9 @@ if(!IS_CLI) {
             //CGI/FASTCGI模式下
             $_temp  = explode('.php',$_SERVER['PHP_SELF']);
             define('_PHP_FILE_',  rtrim(str_replace($_SERVER['HTTP_HOST'],'',$_temp[0].'.php'),'/'));
-<<<<<<< HEAD
-            
         }else {
             define('_PHP_FILE_',    rtrim($_SERVER['SCRIPT_NAME'],'/'));
         }
-        
-=======
-        }else {
-            define('_PHP_FILE_',    rtrim($_SERVER['SCRIPT_NAME'],'/'));
-        }
->>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
     }
     if(!defined('__ROOT__')) {
         // 网站URL根目录

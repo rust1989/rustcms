@@ -229,6 +229,7 @@ function D($name='') {
     }else{
         $name   =  C('DEFAULT_APP').'/Model/'.$name;
     }
+  
     import($name.'Model');
     $class   =   basename($name.'Model');
     if(class_exists($class)) {

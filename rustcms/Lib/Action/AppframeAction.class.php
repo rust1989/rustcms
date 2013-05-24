@@ -3,7 +3,8 @@ class AppframeAction extends Action{
     //记录各种缓存
 	public static $Cache=array();
     
-	public function __initialize(){
+	function _initialize(){
+		import("ORG.Util.Input");
 		//消除魔术引号转义
 		Input::noGPC();
 		$this->initSite();
@@ -20,7 +21,7 @@ class AppframeAction extends Action{
 	/**
 	 * 初始化网站配置
 	 */
-	final protected  function iniSite(){
+	final protected  function initSite(){
 		$config=F("Config");
 		self::$Cache['Config']=$config;
 		

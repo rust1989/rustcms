@@ -128,9 +128,6 @@ class Dispatcher {
             define('__INFO__',$_SERVER['PATH_INFO']);
         }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
         // 获取分组 模块和操作名称
         if (C('APP_GROUP_LIST')) {
             define('GROUP_NAME', self::getGroup(C('VAR_GROUP')));
@@ -151,38 +148,6 @@ class Dispatcher {
         }
         // 当前操作地址
         define('__ACTION__',__URL__.$depr.ACTION_NAME);
-=======
-        // URL常量
-        define('__SELF__',strip_tags($_SERVER['REQUEST_URI']));
-        // 当前项目地址
-        define('__APP__',strip_tags(PHP_FILE));
-        
->>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
-        // 获取分组 模块和操作名称
-        if (C('APP_GROUP_LIST')) {
-            define('GROUP_NAME', self::getGroup(C('VAR_GROUP')));
-        }
-        define('MODULE_NAME',self::getModule(C('VAR_MODULE')));
-        define('ACTION_NAME',self::getAction(C('VAR_ACTION')));
-        // URL常量
-        define('__SELF__',strip_tags($_SERVER['REQUEST_URI']));
-        // 当前项目地址
-        define('__APP__',strip_tags(PHP_FILE));
-        // 当前模块和分组地址
-        $module = defined('P_MODULE_NAME')?P_MODULE_NAME:MODULE_NAME;
-        if(defined('GROUP_NAME')) {
-            define('__GROUP__',(!empty($domainGroup) || strtolower(GROUP_NAME) == strtolower(C('DEFAULT_GROUP')) )?__APP__ : __APP__.'/'.GROUP_NAME);
-            define('__URL__',!empty($domainModule)?__GROUP__.$depr : __GROUP__.$depr.$module);
-        }else{
-            define('__URL__',!empty($domainModule)?__APP__.'/' : __APP__.'/'.$module);
-        }
-        // 当前操作地址
-<<<<<<< HEAD
-        define('__ACTION__',__URL__.$depr.ACTION_NAME);
-=======
-        define('__ACTION__',__URL__.$depr.(defined('Action_ALIAS')?ACTION_ALIAS:ACTION_NAME));
->>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
->>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
         //保证$_REQUEST正常取值
         $_REQUEST = array_merge($_POST,$_GET);
     }

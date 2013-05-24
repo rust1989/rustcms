@@ -875,7 +875,6 @@ class Db {
                 return $value;
             }
         }
-		//echo $sql;
         $result   = $this->query($sql);
         if($cache && false !== $result ) { // 查询缓存写入
             S($key,$result,$cache['expire'],$cache['type']);

@@ -197,8 +197,10 @@ class  ThinkTemplate {
         // 当TAGLIB_LOAD配置为true时才会进行检测
         if(C('TAGLIB_LOAD')) {
             $this->getIncludeTagLib($content);
+            
             if(!empty($this->tagLib)) {
                 // 对导入的TagLib进行解析
+                
                 foreach($this->tagLib as $tagLibName) {
                     $this->parseTagLib($tagLibName,$content);
                 }

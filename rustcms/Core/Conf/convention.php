@@ -34,16 +34,6 @@ return  array(
     'APP_SUB_DOMAIN_RULES'  => array(), // 子域名部署规则
     'APP_SUB_DOMAIN_DENY'   => array(), //  子域名禁用列表
     'APP_GROUP_LIST'        => '',      // 项目分组设定,多个组之间用逗号分隔,例如'Home,Admin'
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-	'APP_GROUP_MODE'        =>  0,  // 分组模式 0 普通分组 1 独立分组
-	'APP_GROUP_PATH'        =>  'Modules', // 分组目录 独立分组模式下面有效
-	'ACTION_SUFFIX'         =>  '', // 操作方法后缀
-	
->>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
->>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
 
     /* Cookie设置 */
     'COOKIE_EXPIRE'         => 3600,    // Coodie有效期
@@ -52,6 +42,8 @@ return  array(
     'COOKIE_PREFIX'         => '',      // Cookie前缀 避免冲突
 
     /* 默认设定 */
+	'DEFAULT_C_LAYER'   =>'Action',//默认控制名称
+	'DEFAULT_M_LAYER'  =>'Model',//默认视图名称
     'DEFAULT_APP'           => '@',     // 默认项目名称，@表示当前项目
     'DEFAULT_LANG'          => 'zh-cn', // 默认语言
     'DEFAULT_THEME'    => '',	// 默认模板主题名称

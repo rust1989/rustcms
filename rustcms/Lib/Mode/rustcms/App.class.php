@@ -42,11 +42,11 @@ class App {
         // URL调度
         Dispatcher::dispatch();
         //定义当前项目基础路径
-        define("BASE_LIB_PATH",(defined("GROUP_NAME")&&(C("APP_GROUP_MODE")==1))?APP_PATH.C("APP_GROUP_PATH").'/'.GROUP_NAME.'/':LIB_PATH);
+        define("BASE_LIB_PATH",(defined("GROUP_NAME")&&(C("APP_GROUP_MODE")==1))?APP_PATH.C("APP_GROUP_PATH").'/':LIB_PATH);
         if(defined("GROUP_NAME")){
         	if(1==C("APP_GROUP_MODE")){
-        		$config_path=BASE_LIB_PATH.'Conf/';
-        		$common_path=BASE_LIB_PATH.'Common/';
+        		$config_path=BASE_LIB_PATH.GROUP_NAME.'/'.'Conf/';
+        		$common_path=BASE_LIB_PATH.GROUP_NAME.'/'.'Common/';
         	}else{
         		$config_path=CONF_PATH.GROUP_NAME;
         		$common_path=COMMON_PATH.GROUP_NAME;
@@ -84,7 +84,7 @@ class App {
         /* 模板相关目录常量 */
         define('THEME_NAME',   $templateSet);                  // 当前模板主题名称
         $group   =  defined('GROUP_NAME')?GROUP_NAME.'/':'';
-        define('THEME_PATH',(1==C("APP_GROUP_MODE"))?BASE_LIB_PATH.basename(TMPL_PATH).'/'.(THEME_NAME?THEME_NAME.'/':''):TMPL_PATH.$group.(THEME_NAME?THEME_NAME.'/':''));
+        define('THEME_PATH',(1==C("APP_GROUP_MODE"))?BASE_LIB_PATH.GROUP_NAME.'/'.basename(TMPL_PATH).'/'.(THEME_NAME?THEME_NAME.'/':''):TMPL_PATH.$group.(THEME_NAME?THEME_NAME.'/':''));
         define('APP_TMPL_PATH',(1==C("APP_GROUP_MODE"))?THEME_PATH:__ROOT__.'/'.APP_NAME.(APP_NAME?'/':'').basename(TMPL_PATH).'/'.$group.(THEME_NAME?THEME_NAME.'/':''));
         C('TEMPLATE_NAME',THEME_PATH.MODULE_NAME.(defined('GROUP_NAME')?C('TMPL_FILE_DEPR'):'/').ACTION_NAME.C('TMPL_TEMPLATE_SUFFIX'));
         C('CACHE_PATH',CACHE_PATH.$group);
