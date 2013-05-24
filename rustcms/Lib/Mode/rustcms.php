@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK IT ]
@@ -9,6 +10,22 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 // $Id: mode.php 2702 2012-02-02 12:35:01Z liu21st $
+=======
+<<<<<<< HEAD
+<?php
+return array(
+   'core'         =>   array(
+        THINK_PATH.'Common/functions.php', // 标准模式函数库
+        CORE_PATH.'Core/Log.class.php',    // 日志处理类
+        LIB_PATH.'Mode/rustcms/Dispatcher.class.php', // URL调度类
+        LIB_PATH.'Mode/rustcms/App.class.php',   // 应用程序类
+        CORE_PATH.'Core/Action.class.php', // 控制器类
+        CORE_PATH.'Core/View.class.php',  // 视图类
+    ),		 
+);
+=======
+<?php 
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
 
 /**
  +------------------------------------------------------------------------------
@@ -37,6 +54,7 @@ return array(
         CORE_PATH.'Core/View.class.php',  // 视图类
     ),
 
+<<<<<<< HEAD
     // 项目别名定义文件 [支持数组直接定义或者文件名定义]
     // 例如 'alias'         =>    CONF_PATH.'alias.php', 
 
@@ -52,3 +70,7 @@ return array(
     // 模式配置文件  [支持数组直接定义或者文件名定义]（如有相同则覆盖项目配置文件中的配置）
     // 例如 'config'       =>   array(), 
 );
+=======
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
+?>
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d

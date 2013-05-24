@@ -205,10 +205,21 @@ function alias_import($alias, $classfile='') {
  * D函数用于实例化Model 格式 项目://分组/模块
  +----------------------------------------------------------
  * @param string name Model资源地址
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+ * @param string $layer 业务层名称
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
   +----------------------------------------------------------
  * @return Model
   +----------------------------------------------------------
  */
+<<<<<<< HEAD
+function D($name='') {
+=======
+<<<<<<< HEAD
 function D($name='') {
     if(empty($name)) return new Model;
     static $_model = array();
@@ -226,6 +237,30 @@ function D($name='') {
     }else {
         $model  = new Model(basename($name));
     }
+=======
+function D($name='',$layer='') {
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
+    if(empty($name)) return new Model;
+    static $_model = array();
+    if(isset($_model[$name]))
+        return $_model[$name];
+    if(strpos($name,'://')) {// 指定项目
+        $name   =  str_replace('://','/Model/',$name);
+    }else{
+        $name   =  C('DEFAULT_APP').'/Model/'.$name;
+    }
+    import($name.'Model');
+    $class   =   basename($name.'Model');
+    if(class_exists($class)) {
+        $model = new $class();
+    }else {
+        $model  = new Model(basename($name));
+    }
+<<<<<<< HEAD
+=======
+   
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
     $_model[$name]  =  $model;
     return $model;
 }
@@ -258,10 +293,22 @@ function M($name='', $tablePrefix='',$connection='') {
  * A函数用于实例化Action 格式：[项目://][分组/]模块
   +----------------------------------------------------------
  * @param string name Action资源地址
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+ * @param string $layer 控制层名称
+ * @param boolean $common 是否公共目录
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
   +----------------------------------------------------------
  * @return Action
   +----------------------------------------------------------
  */
+<<<<<<< HEAD
+function A($name) {
+=======
+<<<<<<< HEAD
 function A($name) {
     static $_action = array();
     if(isset($_action[$name]))
@@ -273,6 +320,25 @@ function A($name) {
     }
     import($name.'Action');
     $class   =   basename($name.'Action');
+=======
+function A($name,$layer='',$common=false) {
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
+    static $_action = array();
+    if(isset($_action[$name]))
+        return $_action[$name];
+    if(strpos($name,'://')) {// 指定项目
+        $name   =  str_replace('://','/Action/',$name);
+    }else{
+        $name   =  '@/Action/'.$name;
+    }
+<<<<<<< HEAD
+    import($name.'Action');
+    $class   =   basename($name.'Action');
+=======
+    
+    $class   =   basename($name.$layer);
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
     if(class_exists($class,false)) {
         $action = new $class();
         $_action[$name]  =  $action;

@@ -1,0 +1,95 @@
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | ERR: (ThinkException) 模板不存在[F:\wamp\www\rustcms/rustcms/Modules/Contents/Tpl/Index/index.html]
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --START--
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | INFO: Run ReadHtmlCache Behavior [ RunTime:0.002899s ]
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | INFO: Run CheckLang Behavior [ RunTime:0.004036s ]
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --END-- [ RunTime:0.007457s ]
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | INFO: Tag[ view_template ] --START--
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: file ThinkException.class.php 第 78 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: line ThinkException.class.php 第 78 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Array to string conversion ThinkException.class.php 第 80 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:21+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | ERR: (ThinkException) 模板不存在[F:\wamp\www\rustcms/rustcms/Modules/Contents/Tpl/Index/index.html]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --START--
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Run ReadHtmlCache Behavior [ RunTime:0.002769s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Run CheckLang Behavior [ RunTime:0.003419s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --END-- [ RunTime:0.006736s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ view_template ] --START--
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: file ThinkException.class.php 第 78 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: line ThinkException.class.php 第 78 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Array to string conversion ThinkException.class.php 第 80 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | ERR: (ThinkException) 模板不存在[F:\wamp\www\rustcms/rustcms/Modules/Contents/Tpl/Index/index.html]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --START--
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Run ReadHtmlCache Behavior [ RunTime:0.002174s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Run CheckLang Behavior [ RunTime:0.003054s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --END-- [ RunTime:0.005734s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ view_template ] --START--
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: file ThinkException.class.php 第 78 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: line ThinkException.class.php 第 78 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Array to string conversion ThinkException.class.php 第 80 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | ERR: (ThinkException) 模板不存在[F:\wamp\www\rustcms/rustcms/Modules/Contents/Tpl/Index/index.html]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --START--
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Run ReadHtmlCache Behavior [ RunTime:0.002088s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Run CheckLang Behavior [ RunTime:0.002631s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --END-- [ RunTime:0.005208s ]
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | INFO: Tag[ view_template ] --START--
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: file ThinkException.class.php 第 78 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: line ThinkException.class.php 第 78 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Array to string conversion ThinkException.class.php 第 80 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: class ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:01:22+08:00 ] /rustcms/ | NOTIC: [8] Undefined index: type ThinkException.class.php 第 79 行.
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --START--
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run ReadHtmlCache Behavior [ RunTime:0.003955s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run CheckLang Behavior [ RunTime:0.004857s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ app_begin ] --END-- [ RunTime:0.009418s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ view_template ] --START--
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run LocationTemplate Behavior [ RunTime:0.009672s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ view_template ] --END-- [ RunTime:0.010066s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ view_parse ] --START--
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run ParseTemplate Behavior [ RunTime:0.033054s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ view_parse ] --END-- [ RunTime:0.033406s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ view_filter ] --START--
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run ContentReplace Behavior [ RunTime:0.002121s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run TokenBuild Behavior [ RunTime:0.002586s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run WriteHtmlCache Behavior [ RunTime:0.017443s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run ShowRuntime Behavior [ RunTime:0.002409s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ view_filter ] --END-- [ RunTime:0.025428s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ view_end ] --START--
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Run ShowPageTrace Behavior [ RunTime:0.003925s ]
+[ 2013-05-24T00:03:36+08:00 ] /rustcms/ | INFO: Tag[ view_end ] --END-- [ RunTime:0.004224s ]

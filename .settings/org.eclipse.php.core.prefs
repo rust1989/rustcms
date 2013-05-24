@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+#Tue May 21 22:17:24 CST 2013
+eclipse.preferences.version=1
+include_path=0;/rustcms
+=======
 #Tue May 21 10:00:30 CST 2013
 eclipse.preferences.version=1
 include_path=0;/rustcms
 use_asp_tags_as_php=false
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7

@@ -18,7 +18,15 @@
 class CheckLangBehavior extends Behavior {
     // 行为参数定义（默认值） 可在项目配置中覆盖
     protected $options   =  array(
+<<<<<<< HEAD
             'LANG_SWITCH_ON'        => true,   // 默认关闭语言包功能
+=======
+<<<<<<< HEAD
+            'LANG_SWITCH_ON'        => true,   // 默认关闭语言包功能
+=======
+            'LANG_SWITCH_ON'        => false,   // 默认关闭语言包功能
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
             'LANG_AUTO_DETECT'      => true,   // 自动侦测语言 开启多语言功能后有效
             'LANG_LIST' => 'zh-cn', // 允许切换的语言列表 用逗号分隔
             'VAR_LANGUAGE'          => 'l',		// 默认语言切换变量
@@ -42,10 +50,22 @@ class CheckLangBehavior extends Behavior {
      */
     private function checkLanguage() {
         // 不开启语言包功能，仅仅加载框架语言文件直接返回
+<<<<<<< HEAD
 		
         if (!C('LANG_SWITCH_ON')){
            
 		    return;
+=======
+<<<<<<< HEAD
+		
+        if (!C('LANG_SWITCH_ON')){
+           
+		    return;
+=======
+        if (!C('LANG_SWITCH_ON')){
+            return;
+>>>>>>> d46290d87d1f4a6e9d89003fef029948a08bd7c7
+>>>>>>> 1854c6b43b83344911aaee562a0bf471f37cdd3d
         }
         $langSet = C('DEFAULT_LANG');
         // 启用了语言包功能
