@@ -43,113 +43,32 @@ function refreshMainFrame(url)
         <dt><a href="" onclick="return showHide('items0');" target="_self">系统管理</a></dt>
         <dd id="items0" style="display:block;">
             <ul>
-				<li><a href='__GROUP__/Setting/'>系统设置管理</a></li> 
-                <li><a href='__GROUP__/User/'>管理员管理</a></li> 
+				<li><a href='__GROUP__/Menu'>后台菜单设置</a></li> 
+				<li><a href='__GROUP__/Censor/'>词语过滤</a></li> 
+				<li><a href='__GROUP__/Config/'>站点配置</a></li> 
+            </ul>
+        </dd>
+    </dl>
+     <dl>
+        <dt><a href="" onclick="return showHide('items0');" target="_self">管理员管理</a></dt>
+        <dd id="items0" style="display:block;">
+            <ul>
+				<li><a href='__GROUP__/Management/role'>管理员角色</a></li> 
+                <li><a href='__GROUP__/Management'>管理员管理</a></li> 
+            </ul>
+        </dd>
+    </dl>
+    <dl>
+        <dt><a href="" onclick="return showHide('items0');" target="_self">日志管理</a></dt>
+        <dd id="items0" style="display:block;">
+            <ul>
+				<li><a href='__GROUP__/Logs/loginlog'>后台登陆日志</a></li> 
+                <li><a href='__GROUP__/Logs'>后台操作日志</a></li> 
             </ul>
         </dd>
     </dl>
 <script type="text/javascript">refreshMainFrame('__GROUP__/Setting/');</script><?php break;?>
-<?php case "News": ?><dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">新闻分类管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-              <li><a href='__GROUP__/News/newssort'>新闻分类管理</a></li> 
-            </ul>
-        </dd>
-    </dl>
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">新闻管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-              <?php if(is_array($newssort)): $i = 0; $__LIST__ = $newssort;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href='__GROUP__/News/index/pid/<?php echo ($vo["id"]); ?>'><?php echo ($vo["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
-        </dd>
-    </dl>
-<script type="text/javascript">refreshMainFrame('__GROUP__/News');</script><?php break;?>
 
-
-<?php case "Video": ?><dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">视频分类管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-               <li><a href='__GROUP__/Video/videosort'>视频分类管理</a></li> 
-            </ul>
-        </dd>
-    </dl>
-
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">视频管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-              <?php if(is_array($videosort)): $i = 0; $__LIST__ = $videosort;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href='__GROUP__/Video/index/pid/<?php echo ($vo["id"]); ?>'><?php echo ($vo["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
-        </dd>
-    </dl>
-<script type="text/javascript">refreshMainFrame('__GROUP__/Video');</script><?php break;?>
-
-
-<?php case "Photo": ?><dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">作品分类管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-                <li><a href='__GROUP__/Photo/photosort'>作品分类管理</a></li> 
-            </ul>
-        </dd>
-    </dl>
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">作品展示管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-              <?php if(is_array($photosort)): $i = 0; $__LIST__ = $photosort;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href='__GROUP__/Photo/index/pid/<?php echo ($vo["id"]); ?>'><?php echo ($vo["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
-        </dd>
-    </dl>
-<script type="text/javascript">refreshMainFrame('__GROUP__/Photo');</script><?php break;?>
-<?php case "Images": ?><dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">图集列表管理</a></dt>
-        <dd id="items0" style="display:block;">
-          <ul>
-          <li><a href='__GROUP__/Images/imagessort'>图片列表分类管理</a></li> 
-          </ul>
-        </dd>
-    </dl>
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">图集列表管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-              <?php if(is_array($imagessort)): $i = 0; $__LIST__ = $imagessort;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href='__GROUP__/Images/index/pid/<?php echo ($vo["id"]); ?>'><?php echo ($vo["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
-        </dd>
-    </dl>
-<script type="text/javascript">refreshMainFrame('__GROUP__/Images');</script><?php break;?>
-<?php case "Assistant": ?><dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">助手管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-              <li><a href='__GROUP__/Assistant'>助手管理</a></li> 
-            
-            </ul>
-        </dd>
-    </dl>
-<script type="text/javascript">refreshMainFrame('__GROUP__/Assistant');</script><?php break;?>
-
-<?php case "Page": ?><dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">单页管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-           <li><a href='__GROUP__/Page/pagesort'>单页分类管理</a></li> 
-              </ul>
-        </dd>
-    </dl>
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">单页管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-              <?php if(is_array($pagesort)): $i = 0; $__LIST__ = $pagesort;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href='__GROUP__/Page/index/id/<?php echo ($vo["id"]); ?>'><?php echo ($vo["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
-        </dd>
-    </dl>
-<script type="text/javascript">refreshMainFrame('__GROUP__/Page');</script><?php break;?>
 <?php case "Index": ?><dl>
         <dt><a href="" onclick="return showHide('items0');" target="_self">单页管理</a></dt>
         <dd id="items0" style="display:block;">

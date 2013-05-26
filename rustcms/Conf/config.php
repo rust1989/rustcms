@@ -87,17 +87,18 @@ $config=array(
 		'URL_HTML_SUFFIX'       => '',  // URL伪静态后缀设置
 		
 		'USER_AUTH_ON'=>true,// 是否需要认证
-		'USER_AUTH_TYPE'=>'', //认证类型
-	    'USER_AUTH_KEY'=>'',// 认证识别号
+		'USER_AUTH_TYPE'=>'2', //认证类型
+	    'USER_AUTH_KEY'=>'@&rustuser',// 认证识别号
 		'REQUIRE_AUTH_MODULE'=>'',//  需要认证模块
 		'NOT_AUTH_MODULE'=>'Contents,Member',// 无需认证模块
-		'USER_AUTH_MODEL'=>'Admin',
-		'USER_AUTH_GATEWAY'=>'', //认证网关
+		'USER_AUTH_MODEL'=>'User',
+		'USER_AUTH_GATEWAY'=>'/Admin/Login', //认证网关
 		'RBAC_DB_DSN'=>'' , //数据库连接DSN
 		'RBAC_ROLE_TABLE'=>'role', //角色表名称
 		'RBAC_USER_TABLE'=>'user' ,//用户表名称
 		'RBAC_ACCESS_TABLE'=>'access' ,//权限表名称
 		'RBAC_NODE_TABLE'=>'node', //节点表名称
+		'ADMIN_AUTH_KEY'=>'@&rustAdmin',
 		
 		/* 系统变量名称设置 */
 		'VAR_GROUP'             => 'g',     // 默认分组获取变量
@@ -110,13 +111,13 @@ $config=array(
 		
 		'TMPL_PARSE_STRING'  =>array(
 		
-		'__PUBLIC__' => '/statics', // 更改默认的__PUBLIC__ 替换规则
+		'__PUBLIC__' => '/rustcms/statics', // 更改默认的__PUBLIC__ 替换规则
 		
-		'__JS__' => '/statics/js', // 增加新的JS类库路径替换规则
+		'__JS__' => '/rustcms/statics/js', // 增加新的JS类库路径替换规则
 		
-	   '__CSS__' => '/statics/css', // 增加新的JS类库路径替换规则
+	   '__CSS__' => '/rustcms/statics/css', // 增加新的JS类库路径替换规则
 	   
-	   '__IMG__' => '/statics/images', // 增加新的JS类库路径替换规则
+	   '__IMG__' => '/rustcms/statics/images', // 增加新的JS类库路径替换规则
 		
 		'__UPLOAD__' => '/Uploads', // 增加新的上传路径替换规则
 		

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
 		<ul>
 			<li class="navleft"></li>
 			<li id='d1' style="margin-left:-1px"><A href="__GROUP__/Menu/menu/action/Index" target="mcMenuFrame" class="tabon">首页管理</A></li>
-            <li id='d8'><A href="__GROUP__/Menu/menu/action/Setting" target="mcMenuFrame" >设置</A></li>
+            <li id='d8'><A href="__GROUP__/Menu/menu/action/Setting" target="mcMenuFrame" >系统管理</A></li>
              <li id='d9'><A href="__GROUP__/Menu/menu/action/Images" target="mcMenuFrame" >图集列表管理</A></li>
              <li id='d2'><A href="__GROUP__/Menu/menu/action/News" target="mcMenuFrame" >新闻管理</A></li>
              <li id='d3'><A href="__GROUP__/Menu/menu/action/Video" target="mcMenuFrame" >视频管理</A></li>

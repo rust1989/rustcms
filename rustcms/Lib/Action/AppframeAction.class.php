@@ -8,7 +8,7 @@ class AppframeAction extends Action{
 		//消除魔术引号转义
 		Input::noGPC();
 		$this->initSite();
-		$this->assign("waitSecond",2000);
+		$this->assign("waitSecond",3);
 	}
 
 	/**
