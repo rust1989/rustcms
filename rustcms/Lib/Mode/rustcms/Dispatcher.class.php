@@ -52,6 +52,7 @@ class Dispatcher {
             //当前项目地址
             define('PHP_FILE',_PHP_FILE_);
         }
+
         // 开启子域名部署
         if(C('APP_SUB_DOMAIN_DEPLOY')) {
             $rules = C('APP_SUB_DOMAIN_RULES');
@@ -126,21 +127,17 @@ class Dispatcher {
             }
             define('__INFO__',$_SERVER['PATH_INFO']);
         }
-       
+
         // 获取分组 模块和操作名称
         if (C('APP_GROUP_LIST')) {
             define('GROUP_NAME', self::getGroup(C('VAR_GROUP')));
         }
-       
-     
-        
         define('MODULE_NAME',self::getModule(C('VAR_MODULE')));
         define('ACTION_NAME',self::getAction(C('VAR_ACTION')));
         // URL常量
         define('__SELF__',strip_tags($_SERVER['REQUEST_URI']));
         // 当前项目地址
         define('__APP__',strip_tags(PHP_FILE));
-       
         // 当前模块和分组地址
         $module = defined('P_MODULE_NAME')?P_MODULE_NAME:MODULE_NAME;
         if(defined('GROUP_NAME')) {
