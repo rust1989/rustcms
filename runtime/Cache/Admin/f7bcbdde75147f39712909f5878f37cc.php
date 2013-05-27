@@ -20,9 +20,9 @@
             <th width="80">上一级</th>
             <td><select name="parentid" class="input">
               <option value="0">作为一级菜单</option>
-              <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if($vo['id'] == $pid): ?><option value='<?php echo ($vo["id"]); ?>' selected="selected"><?php echo ($vo["name"]); ?></option>
-                <?php else: ?>
-                <option value='<?php echo ($vo["id"]); ?>'><?php echo ($vo["name"]); ?></option><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+              <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value='<?php echo ($vo["id"]); ?>'  <?php if($vo['id'] == $pid): ?>selected='selected'<?php endif; ?>><?php echo ($vo["name"]); ?></option>
+                  <?php if(is_array($vo['items'])): $i = 0; $__LIST__ = $vo['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i;?><option value='<?php echo ($jo["id"]); ?>' <?php if($jo['id'] == $pid): ?>selected='selected'<?php endif; ?>>|-<?php echo ($jo["name"]); ?></option>
+                     <?php if(is_array($jo['items'])): $i = 0; $__LIST__ = $jo['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ko): $mod = ($i % 2 );++$i;?><option value='<?php echo ($ko["id"]); ?>' <?php if($ko['id'] == $pid): ?>selected='selected'<?php endif; ?>>|&nbsp;&nbsp;|-<?php echo ($ko["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
              </select>
              </td>
           </tr>
@@ -32,7 +32,7 @@
           </tr>
           <tr>
             <th width="80">项目</th>
-            <td><input type="text" id="module" name="module" class="input" value="<?php echo ($list['module']); ?>"><span class="error"></span></td>
+            <td><input type="text" id="app" name="app" class="input" value="<?php echo ($list['app']); ?>"><span class="error"></span></td>
           </tr>
           <tr>
             <th width="80">模块</th>

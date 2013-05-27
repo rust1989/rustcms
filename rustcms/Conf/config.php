@@ -37,7 +37,7 @@ $config=array(
 		'DEFAULT_AJAX_RETURN'   => 'JSON',  // 默认AJAX 数据返回格式,可选JSON XML ...
 		'DEFAULT_FILTER'        => 'htmlspecialchars', // 默认参数过滤方法 用于 $this->_get('变量名');$this->_post('变量名')...
 		
-		
+		'MENU_LIMIT_LEVEL'=>'3',
 
 		/* 数据缓存设置 */
 		'DATA_CACHE_TIME'		=> 0,      // 数据缓存有效期 0表示永久缓存
@@ -111,13 +111,13 @@ $config=array(
 		
 		'TMPL_PARSE_STRING'  =>array(
 		
-		'__PUBLIC__' => '/rustcms/statics', // 更改默认的__PUBLIC__ 替换规则
+		'__PUBLIC__' => '/statics', // 更改默认的__PUBLIC__ 替换规则
 		
-		'__JS__' => '/rustcms/statics/js', // 增加新的JS类库路径替换规则
+		'__JS__' => '/statics/js', // 增加新的JS类库路径替换规则
 		
-	   '__CSS__' => '/rustcms/statics/css', // 增加新的JS类库路径替换规则
+	   '__CSS__' => '/statics/css', // 增加新的JS类库路径替换规则
 	   
-	   '__IMG__' => '/rustcms/statics/images', // 增加新的JS类库路径替换规则
+	   '__IMG__' => '/statics/images', // 增加新的JS类库路径替换规则
 		
 		'__UPLOAD__' => '/Uploads', // 增加新的上传路径替换规则
 		

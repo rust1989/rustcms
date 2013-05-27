@@ -31,7 +31,21 @@
             <td><?php echo ($vo["name"]); ?></td>
             <th width="80"><?php echo ($vo["display"]); ?></th>
             <th width="200"><a href="__URL__/control/pid/<?php echo ($vo["id"]); ?>">添加子菜单</a>|<a href="__URL__/control/id/<?php echo ($vo["id"]); ?>">修改</a>|<a href="">删除</a></th>
-          </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+          </tr>
+              <?php if(is_array($vo['items'])): $i = 0; $__LIST__ = $vo['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i;?><tr>
+		            <th width="80"><input type="text" value="<?php echo ($jo["listorder"]); ?>" class="input sid"></th>
+		            <th width="80"><?php echo ($jo["id"]); ?></th>
+		            <td>|—<?php echo ($jo["name"]); ?></td>
+		            <th width="80"><?php echo ($jo["display"]); ?></th>
+		            <th width="200"><a href="__URL__/control/pid/<?php echo ($jo["id"]); ?>">添加子菜单</a>|<a href="__URL__/control/id/<?php echo ($jo["id"]); ?>">修改</a>|<a href="">删除</a></th>
+		          </tr>
+		             <?php if(is_array($jo['items'])): $i = 0; $__LIST__ = $jo['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ko): $mod = ($i % 2 );++$i;?><tr>
+		            <th width="80"><input type="text" value="<?php echo ($ko["listorder"]); ?>" class="input sid"></th>
+		            <th width="80"><?php echo ($ko["id"]); ?></th>
+	            <td>|&nbsp;&nbsp;|—<?php echo ($ko["name"]); ?></td>
+		            <th width="80"><?php echo ($ko["display"]); ?></th>
+		            <th width="200"><a href="__URL__/control/pid/<?php echo ($ko["id"]); ?>">添加子菜单</a>|<a href="__URL__/control/id/<?php echo ($ko["id"]); ?>">修改</a>|<a href="">删除</a></th>
+		          </tr><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
         </table>
     </div>
 </div>

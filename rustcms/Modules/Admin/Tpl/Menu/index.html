@@ -33,6 +33,25 @@
             <th width="80">{$vo.display}</th>
             <th width="200"><a href="__URL__/control/pid/{$vo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$vo.id}">修改</a>|<a href="">删除</a></th>
           </tr>
+              <volist name="vo['items']"  id="jo">
+                 <tr>
+		            <th width="80"><input type="text" value="{$jo.listorder}" class="input sid"></th>
+		            <th width="80">{$jo.id}</th>
+		            <td>|—{$jo.name}</td>
+		            <th width="80">{$jo.display}</th>
+		            <th width="200"><a href="__URL__/control/pid/{$jo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$jo.id}">修改</a>|<a href="">删除</a></th>
+		          </tr>
+		             <volist name="jo['items']"  id="ko">
+                 <tr>
+		            <th width="80"><input type="text" value="{$ko.listorder}" class="input sid"></th>
+		            <th width="80">{$ko.id}</th>
+	            <td>|&nbsp;&nbsp;|—{$ko.name}</td>
+		            <th width="80">{$ko.display}</th>
+		            <th width="200"><a href="__URL__/control/pid/{$ko.id}">添加子菜单</a>|<a href="__URL__/control/id/{$ko.id}">修改</a>|<a href="">删除</a></th>
+		          </tr>
+              </volist>
+              </volist>
+              
           </volist>
         </table>
     </div>

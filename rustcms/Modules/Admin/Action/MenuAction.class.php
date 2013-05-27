@@ -5,29 +5,33 @@ class MenuAction extends AdminAction {
 		parent::__initialize();		
 	}
 	public function index(){
-		$this->_menu();
+		$db=D("Menu");
+		$menu=$db->menu_tree();
+		$this->assign('menu',$menu);
 		$this->display();
 	}
-	public function _menu(){
-		$db=M('Menu');
-		$list=$db->select();
-		$this->assign('menu',$list);
-	}
+	
 	public function control(){
-		$this->_menu();
-		if(isset($_GET['pid']))
-		$this->assign('pid',$_GET['pid']);
-		if($_GET['id']){
-		$db=M('Menu');
+		$db=D('Menu');
+		$id=isset($_GET['id'])?$_GET['id']:'';
+		$pid=$db->get_parentid($id);
+		
+		$this->assign('pid',$pid);
+		if($id){
 		$where=array();
 		$where['id']=$_GET['id'];
 		$list=$db->where($where)->find();
 		$this->assign('list',$list);
 		}
+		$menu=$db->menu_tree();
+		$this->assign('menu',$menu);
 		$this->display();
 	}
 	public function save(){
 		$db=D('Menu');
+		$data=array();
+		$data['level']=$db->get_level();
+		if(!$db->check_level()) $this->error("菜单子级层数超过".C('MENU_LIMIT_LEVEL'),__URL__);
 		
 		if(!$db->create()){
 			$this->error($db->getError(),__URL__.'/control');
@@ -36,7 +40,7 @@ class MenuAction extends AdminAction {
 			$query=$db->save();	
 		    }else{
 			$listorder=$db->add();
-			$data=array();
+			
 			$data['listorder']=$listorder;
 			$where=array();
 			$where['id']=$listorder;

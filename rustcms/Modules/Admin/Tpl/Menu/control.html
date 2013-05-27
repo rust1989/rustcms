@@ -21,11 +21,13 @@
             <td><select name="parentid" class="input">
               <option value="0">作为一级菜单</option>
               <volist name="menu" id="vo">
-                <if condition="$vo['id'] eq $pid">
-                <option value='{$vo.id}' selected="selected">{$vo.name}</option>
-                <else/>
-                <option value='{$vo.id}'>{$vo.name}</option>
-                </if>
+                  <option value='{$vo.id}'  <if condition="$vo['id'] eq $pid">selected='selected'</if>>{$vo.name}</option>
+                  <volist name="vo['items']"  id="jo">
+                      <option value='{$jo.id}' <if condition="$jo['id'] eq $pid">selected='selected'</if>>|-{$jo.name}</option>
+                     <volist name="jo['items']" id="ko">
+                       <option value='{$ko.id}' <if condition="$ko['id'] eq $pid">selected='selected'</if>>|&nbsp;&nbsp;|-{$ko.name}</option>
+                     </volist>
+                  </volist>
               </volist>
              </select>
              </td>
@@ -36,7 +38,7 @@
           </tr>
           <tr>
             <th width="80">项目</th>
-            <td><input type="text" id="module" name="module" class="input" value="{$list['module']}"><span class="error"></span></td>
+            <td><input type="text" id="app" name="app" class="input" value="{$list['app']}"><span class="error"></span></td>
           </tr>
           <tr>
             <th width="80">模块</th>
