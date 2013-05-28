@@ -38,78 +38,19 @@ function refreshMainFrame(url)
 <base target="mcMainFrame">
 <body>
 <div class="menu">
-
-<switch name="action">
-
-<case value="Setting">
-
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">系统管理</a></dt>
-        <dd id="items0" style="display:block;">
+<volist name="menu" id="vo">
+      <dl>
+          <dt><a href="" onclick="return showHide('items0');" target="_self">{$vo.name}</a></dt>
+           <dd id="items0" style="display:block;">
             <ul>
-				<li><a href='__GROUP__/Menu'>后台菜单设置</a></li> 
-				<li><a href='__GROUP__/Censor/'>词语过滤</a></li> 
-				<li><a href='__GROUP__/Config/'>站点配置</a></li> 
+                <volist name="vo['items']" id="jo">
+                <li><a href='/index.php/?g={$jo.app}&m={$jo.control}&a={$jo.action}'>{$jo.name}</a></li> 
+                </volist>
             </ul>
         </dd>
-    </dl>
-     <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">管理员管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-				<li><a href='__GROUP__/Management/role'>管理员角色</a></li> 
-                <li><a href='__GROUP__/Management'>管理员管理</a></li> 
-            </ul>
-        </dd>
-    </dl>
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">日志管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-				<li><a href='__GROUP__/Logs/loginlog'>后台登陆日志</a></li> 
-                <li><a href='__GROUP__/Logs'>后台操作日志</a></li> 
-            </ul>
-        </dd>
-    </dl>
-<script type="text/javascript">refreshMainFrame('__GROUP__/Setting/');</script>
-
-</case>
-
-<case value="Index">
-
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">单页管理</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-             <li><a href='__GROUP__/Banner/index'>首页banner管理</a></li> 
-             <li><a href='__GROUP__/Class/index'>首页课程时间管理</a></li> 
-             <li><a href='__GROUP__/Enjoy/index'>首页作品欣赏管理</a></li> 
-             <li><a href='__GROUP__/Movie/index'>首页完美视线管理</a></li> 
-             <li><a href='__GROUP__/Download/index'>首页下载管理</a></li> 
-            </ul>
-        </dd>
-    </dl>
-<script type="text/javascript">refreshMainFrame('__GROUP__/Banner/index');</script>
-
-</case> 
-<default />
-
-    <dl>
-        <dt><a href="" onclick="return showHide('items0');" target="_self">快捷方式</a></dt>
-        <dd id="items0" style="display:block;">
-            <ul>
-				<eq name="security['allowsystem']" value="1"><li><a href='__APP__/Settings'>系统配置</a></li></eq> 
-				<eq name="security['allowmember']" value="1"><li><a href='__APP__/Member'>用户管理</a></li></eq>
-                <eq name="security['allowgroup']" value="1"><li style="display:none;"><a href='__APP__/Usergroup'>用户组管理</a></li></eq>
-            </ul>
-        </dd>
-    </dl> 
-	<!--<script type="text/javascript">refreshMainFrame('__APP__/Index/main');</script>-->
-
-</switch>
-
-
-
+      </dl>
+       <script type="text/javascript">refreshMainFrame('/index.php/?g={$default.app}&m={$default.control}&a={$default.action}');</script>
+</volist>
 </div>
 </body>
 </html>

@@ -1,5 +1,8 @@
 <?php
-class MenuModel extends Model{
+class MenuModel extends CommonModel{
+	public  function __construct(){
+		parent::__construct();
+	}
 	protected $_validate =array(
 	        array('name','require','名称必须！'),
 			array('app','require','项目必须!'),
@@ -19,6 +22,7 @@ class MenuModel extends Model{
 		$db=M("Menu");
 		$list=$db->select();
 		F('Menu',$list);
+		return F('Menu');
 	}
 	/**
 	 * 获取子菜单
@@ -94,6 +98,7 @@ class MenuModel extends Model{
 		$level=(int)$arr['level']+1;
 		return $level;
 	}
+	
 	/**
 	 * 获取父级ID
 	 */
@@ -107,4 +112,5 @@ class MenuModel extends Model{
 		}
 		return $arr['parentid'];
 	}
+	
 }

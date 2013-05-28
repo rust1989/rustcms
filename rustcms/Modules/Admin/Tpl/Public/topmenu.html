@@ -19,15 +19,11 @@
 	<div class="leftnav" style="float:left;">
 		<ul>
 			<li class="navleft"></li>
-			<li id='d1' style="margin-left:-1px"><A href="__GROUP__/Menu/menu/action/Index" target="mcMenuFrame" class="tabon">首页管理</A></li>
-            <li id='d8'><A href="__GROUP__/Menu/menu/action/Setting" target="mcMenuFrame" >设置</A></li>
-             <li id='d9'><A href="__GROUP__/Menu/menu/action/Images" target="mcMenuFrame" >图集列表管理</A></li>
-             <li id='d2'><A href="__GROUP__/Menu/menu/action/News" target="mcMenuFrame" >新闻管理</A></li>
-             <li id='d3'><A href="__GROUP__/Menu/menu/action/Video" target="mcMenuFrame" >视频管理</A></li>
-             <li id='d4'><A href="__GROUP__/Menu/menu/action/Photo" target="mcMenuFrame" >作品展示管理</A></li>
-             <li id='d5'><A href="__GROUP__/Menu/menu/action/Assistant" target="mcMenuFrame" >助手管理</A></li>
-             <li id='d6'><A href="__GROUP__/Menu/menu/action/Page" target="mcMenuFrame" >单页管理</A></li>
-            
+            <volist name="menu" id="vo">
+               <if condition="$vo['parentid'] eq 0">
+                 <li id="d{$i}"><a class="tabon" target="mcMenuFrame" href="/index.php/?g={$vo.app}&m={$vo.control}">{$vo.name}</a></li>
+               </if>
+            </volist>
 			<li class="navright"></li>
 		</ul>
 	</div>

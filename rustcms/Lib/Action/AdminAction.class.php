@@ -8,16 +8,11 @@ class AdminAction extends AppframeAction{
 		   $this->error(L("_VALID_ACCESS"));	
 		}
 		define('IS_ADMIN',true);
-		$this->initMenu();
 	}
 	public function index(){
 		
 	}
-	protected  function initMenu(){
-		$menu=F("Menu");
-		if(!$menu)
-			D("Menu")->create_cache();
-	}
+
 	protected function checkLogin(){
 		
 	}

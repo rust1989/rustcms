@@ -8,20 +8,8 @@ body{
 	font-size:12px;
 	height:100%;
 	overflow-y:auto;
-	background-color: #fff;
-	background-image: url(../../images/Admin/left_bg_top.gif);
-	background-repeat: repeat-y;
-	background-position: right center;
+	background-color:#f3f3f3;
 	padding-top: 5px;
-	/*
-	SCROLLBAR-FACE-COLOR:#FF9900; 
-	SCROLLBAR-HIGHLIGHT-COLOR: #FF9900; 
-	SCROLLBAR-SHADOW-COLOR: #FFFF99;
-	SCROLLBAR-3DLIGHT-COLOR: #FFCC00; 
-	SCROLLBAR-ARROW-COLOR: #e8f3fd; 
-	SCROLLBAR-TRACK-COLOR: #FFFF99; 
-	SCROLLBAR-DARKSHADOW-COLOR: #FFFF99; 
-	*/
 }
 /*---- link --------------*/
 a{

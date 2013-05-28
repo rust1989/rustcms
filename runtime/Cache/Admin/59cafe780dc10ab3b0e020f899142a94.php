@@ -19,15 +19,7 @@
 	<div class="leftnav" style="float:left;">
 		<ul>
 			<li class="navleft"></li>
-			<li id='d1' style="margin-left:-1px"><A href="__GROUP__/Menu/menu/action/Index" target="mcMenuFrame" class="tabon">首页管理</A></li>
-            <li id='d8'><A href="__GROUP__/Menu/menu/action/Setting" target="mcMenuFrame" >设置</A></li>
-             <li id='d9'><A href="__GROUP__/Menu/menu/action/Images" target="mcMenuFrame" >图集列表管理</A></li>
-             <li id='d2'><A href="__GROUP__/Menu/menu/action/News" target="mcMenuFrame" >新闻管理</A></li>
-             <li id='d3'><A href="__GROUP__/Menu/menu/action/Video" target="mcMenuFrame" >视频管理</A></li>
-             <li id='d4'><A href="__GROUP__/Menu/menu/action/Photo" target="mcMenuFrame" >作品展示管理</A></li>
-             <li id='d5'><A href="__GROUP__/Menu/menu/action/Assistant" target="mcMenuFrame" >助手管理</A></li>
-             <li id='d6'><A href="__GROUP__/Menu/menu/action/Page" target="mcMenuFrame" >单页管理</A></li>
-            
+            <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if($vo['parentid'] == 0): ?><li id="d<?php echo ($i); ?>"><a class="tabon" target="mcMenuFrame" href="/index.php/?g=<?php echo ($vo["app"]); ?>&m=<?php echo ($vo["control"]); ?>"><?php echo ($vo["name"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
 			<li class="navright"></li>
 		</ul>
 	</div>

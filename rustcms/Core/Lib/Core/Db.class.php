@@ -918,6 +918,7 @@ class Db {
         if(isset($key)) { // 写入SQL创建缓存
             S($key,$sql,0,'',array('length'=>C('DB_SQL_BUILD_LENGTH'),'queue'=>C('DB_SQL_BUILD_QUEUE')));
         }
+        
         return $sql;
     }
 

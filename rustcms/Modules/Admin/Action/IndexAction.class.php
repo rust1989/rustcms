@@ -8,6 +8,10 @@ class IndexAction extends AdminAction {
         $this->display();
     }
     public function topmenu(){
+    	$menu=F("Menu");
+    	if(!$menu)
+    	$menu=D("Menu")->create_cache();
+    	$this->assign("menu",$menu);
     	$this->display("Public:topmenu");
     }
     public function menu(){

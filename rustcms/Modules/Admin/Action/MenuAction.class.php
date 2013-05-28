@@ -28,6 +28,7 @@ class MenuAction extends AdminAction {
 		$this->display();
 	}
 	public function save(){
+		
 		$db=D('Menu');
 		$data=array();
 		$data['level']=$db->get_level();
@@ -40,7 +41,6 @@ class MenuAction extends AdminAction {
 			$query=$db->save();	
 		    }else{
 			$listorder=$db->add();
-			
 			$data['listorder']=$listorder;
 			$where=array();
 			$where['id']=$listorder;
@@ -52,9 +52,13 @@ class MenuAction extends AdminAction {
 		
 	}
     public function menu(){
-    	$action=isset($_GET['action'])?$_GET['action']:'';
-    	$this->assign('action',$action);
+    	$db=D("Menu");
+    	$menu=$db->menu_tree();
+    	$this->assign('menu',$menu);
         $this->display('Public:menu');
     }
-   
+   public function listorder(){
+   	    $db=D('Common');
+   	    $db->listorder();
+   }
 }

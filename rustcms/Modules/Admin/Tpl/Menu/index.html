@@ -23,11 +23,12 @@
           </tr>
         </table>
      </div>
+     <form id="myform">
      <div class="mainlist">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
           <volist name="menu" id="vo">
           <tr>
-            <th width="80"><input type="text" value="{$vo.listorder}" class="input sid"></th>
+            <th width="80"><input type="text" value="{$vo.listorder}" name="listorder_{$vo.id}" class="input sid"></th>
             <th width="80">{$vo.id}</th>
             <td>{$vo.name}</td>
             <th width="80">{$vo.display}</th>
@@ -35,7 +36,7 @@
           </tr>
               <volist name="vo['items']"  id="jo">
                  <tr>
-		            <th width="80"><input type="text" value="{$jo.listorder}" class="input sid"></th>
+		            <th width="80"><input type="text" value="{$jo.listorder}" name="listorder_{$jo.id}"  class="input sid"></th>
 		            <th width="80">{$jo.id}</th>
 		            <td>|—{$jo.name}</td>
 		            <th width="80">{$jo.display}</th>
@@ -43,7 +44,7 @@
 		          </tr>
 		             <volist name="jo['items']"  id="ko">
                  <tr>
-		            <th width="80"><input type="text" value="{$ko.listorder}" class="input sid"></th>
+		            <th width="80"><input type="text" value="{$ko.listorder}" class="input sid" name="listorder_{$ko.id}" ></th>
 		            <th width="80">{$ko.id}</th>
 	            <td>|&nbsp;&nbsp;|—{$ko.name}</td>
 		            <th width="80">{$ko.display}</th>
@@ -55,6 +56,44 @@
           </volist>
         </table>
     </div>
+     <div class="btnwrap">
+       <div class="btn">
+         <input type="hidden" id="id" name="id" value="{$list['id']}" />
+         <input type="submit" id="submit" name="submit" class="sequence" value="" />
+         <span class="error"></span>
+       </div>
+    </div>
+    </form>
 </div>
+<load href="__JS__/jquery.js" />
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("#myform").submit(function(){
+        	var str='';
+        	jQuery("input[name^='listorder']").each(function(){
+        		var val=jQuery(this).val();
+        		var id=jQuery(this).attr('name').split('_')[1];
+        		var num=id+'_'+val;
+        		str+=num+',';
+        	});
+        	str=str.substring(0,str.length-1);
+        	$.ajax({
+        		type:"POST",
+        		url:"__URL__/listorder",
+        		data:'str='+str,
+        		success:function(data){
+        			var obj=jQuery(".btn .error");
+        			if(data=='true')
+        			obj.html("排序成功");
+        			else
+        			obj.html("排序失败");
+        			setTimeout(function(){obj.html('');},5000);
+        			window.location.href="__URL__";
+        		}
+        	});
+        	return false;
+        });
+    });
+</script>
 </body>
 </html>

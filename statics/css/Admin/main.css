@@ -37,5 +37,5 @@ h3.title{color:#000; font-size:14px; font-weight:bold;float:left;width:100%;text
 .mainlist td{ border-right:1px solid #ccc; }
 .mainlist th a{padding:0px 10px;}
 ul,ul li{text-decoration:none; list-style:none;}
-.submit{width:57px;height:23px;background:url(../../images/Admin/login_submit2.gif) no-repeat;border:none;cursor:pointer;}
-
+.submit,.sequence{width:57px;height:23px;background:url(../../images/Admin/login_submit2.gif) no-repeat;border:none;cursor:pointer;}
+.sequence{background:url(../../images/Admin/sequence.jpg) no-repeat;}
