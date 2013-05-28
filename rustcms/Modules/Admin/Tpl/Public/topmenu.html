@@ -21,7 +21,7 @@
 			<li class="navleft"></li>
             <volist name="menu" id="vo">
                <if condition="$vo['parentid'] eq 0">
-                 <li id="d{$i}"><a class="tabon" target="mcMenuFrame" href="/index.php/?g={$vo.app}&m={$vo.control}">{$vo.name}</a></li>
+                 <li id="d{$i}"><a class="tabon" target="mcMenuFrame" href="__APP__?g={$vo.app}&m={$vo.control}">{$vo.name}</a></li>
                </if>
             </volist>
 			<li class="navright"></li>

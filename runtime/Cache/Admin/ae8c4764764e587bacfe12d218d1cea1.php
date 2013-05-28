@@ -41,12 +41,22 @@
 		            <th width="200"><a href="__URL__/control/pid/<?php echo ($jo["id"]); ?>">添加子菜单</a>|<a href="__URL__/control/id/<?php echo ($jo["id"]); ?>">修改</a>|<a href="">删除</a></th>
 		          </tr>
 		             <?php if(is_array($jo['items'])): $i = 0; $__LIST__ = $jo['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ko): $mod = ($i % 2 );++$i;?><tr>
-		            <th width="80"><input type="text" value="<?php echo ($ko["listorder"]); ?>" class="input sid" name="listorder_<?php echo ($ko["id"]); ?>" ></th>
-		            <th width="80"><?php echo ($ko["id"]); ?></th>
-	            <td>|&nbsp;&nbsp;|—<?php echo ($ko["name"]); ?></td>
-		            <th width="80"><?php echo ($ko["display"]); ?></th>
-		            <th width="200"><a href="__URL__/control/pid/<?php echo ($ko["id"]); ?>">添加子菜单</a>|<a href="__URL__/control/id/<?php echo ($ko["id"]); ?>">修改</a>|<a href="">删除</a></th>
-		          </tr><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
+				            <th width="80"><input type="text" value="<?php echo ($ko["listorder"]); ?>" class="input sid" name="listorder_<?php echo ($ko["id"]); ?>" ></th>
+				            <th width="80"><?php echo ($ko["id"]); ?></th>
+			                <td>|&nbsp;&nbsp;|—<?php echo ($ko["name"]); ?></td>
+				            <th width="80"><?php echo ($ko["display"]); ?></th>
+				            <th width="200"><a href="__URL__/control/pid/<?php echo ($ko["id"]); ?>">添加子菜单</a>|<a href="__URL__/control/id/<?php echo ($ko["id"]); ?>">修改</a>|<a href="">删除</a></th>
+				          </tr>
+				          <volist name="ko['items']"  id="mo">
+			                 <tr>
+					            <th width="80"><input type="text" value="<?php echo ($mo["listorder"]); ?>" class="input sid" name="listorder_<?php echo ($mo["id"]); ?>" ></th>
+					            <th width="80"><?php echo ($mo["id"]); ?></th>
+				                <td>|&nbsp;&nbsp;|&nbsp;&nbsp;|—<?php echo ($mo["name"]); ?></td>
+					            <th width="80"><?php echo ($mo["display"]); ?></th>
+					            <th width="200"><a href="__URL__/control/pid/<?php echo ($mo["id"]); ?>">添加子菜单</a>|<a href="__URL__/control/id/<?php echo ($mo["id"]); ?>">修改</a>|<a href="">删除</a></th>
+					         </tr><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
+              
+          </volist>
         </table>
     </div>
      <div class="btnwrap">

@@ -6,7 +6,7 @@ class MenuModel extends CommonModel{
 	protected $_validate =array(
 	        array('name','require','名称必须！'),
 			array('app','require','项目必须!'),
-			array('control','require','模块必须并且唯一!',1,'unique'),
+			array('control','require','模块必须并且唯一!',1),
 			array('action','require','方法必须!')	
 	);
 	protected $_auto = array (

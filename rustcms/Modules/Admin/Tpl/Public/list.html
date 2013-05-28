@@ -43,23 +43,14 @@
 		            <th width="200"><a href="__URL__/control/pid/{$jo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$jo.id}">修改</a>|<a href="">删除</a></th>
 		          </tr>
 		             <volist name="jo['items']"  id="ko">
-		                 <tr>
-				            <th width="80"><input type="text" value="{$ko.listorder}" class="input sid" name="listorder_{$ko.id}" ></th>
-				            <th width="80">{$ko.id}</th>
-			                <td>|&nbsp;&nbsp;|—{$ko.name}</td>
-				            <th width="80">{$ko.display}</th>
-				            <th width="200"><a href="__URL__/control/pid/{$ko.id}">添加子菜单</a>|<a href="__URL__/control/id/{$ko.id}">修改</a>|<a href="">删除</a></th>
-				          </tr>
-				          <volist name="ko['items']"  id="mo">
-			                 <tr>
-					            <th width="80"><input type="text" value="{$mo.listorder}" class="input sid" name="listorder_{$mo.id}" ></th>
-					            <th width="80">{$mo.id}</th>
-				                <td>|&nbsp;&nbsp;|&nbsp;&nbsp;|—{$mo.name}</td>
-					            <th width="80">{$mo.display}</th>
-					            <th width="200"><a href="__URL__/control/pid/{$mo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$mo.id}">修改</a>|<a href="">删除</a></th>
-					         </tr>
-                       </volist>
-                   </volist>
+                 <tr>
+		            <th width="80"><input type="text" value="{$ko.listorder}" class="input sid" name="listorder_{$ko.id}" ></th>
+		            <th width="80">{$ko.id}</th>
+	            <td>|&nbsp;&nbsp;|—{$ko.name}</td>
+		            <th width="80">{$ko.display}</th>
+		            <th width="200"><a href="__URL__/control/pid/{$ko.id}">添加子菜单</a>|<a href="__URL__/control/id/{$ko.id}">修改</a>|<a href="">删除</a></th>
+		          </tr>
+              </volist>
               </volist>
               
           </volist>
