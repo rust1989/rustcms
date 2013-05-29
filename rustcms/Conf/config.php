@@ -97,8 +97,9 @@ $config=array(
 		'RBAC_ROLE_TABLE'=>'role', //角色表名称
 		'RBAC_USER_TABLE'=>'user' ,//用户表名称
 		'RBAC_ACCESS_TABLE'=>'access' ,//权限表名称
-		'RBAC_NODE_TABLE'=>'node', //节点表名称
+		'RBAC_NODE_TABLE'=>'menu', //节点表名称
 		'ADMIN_AUTH_KEY'=>'@&rustAdmin',
+		
 		
 		/* 系统变量名称设置 */
 		'VAR_GROUP'             => 'g',     // 默认分组获取变量

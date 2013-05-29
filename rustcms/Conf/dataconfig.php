@@ -8,7 +8,7 @@ return array(
 		'DB_HOST'               => 'localhost', // 服务器地址
 		'DB_NAME'               => 'rustcms',          // 数据库名
 		'DB_USER'               => 'root',      // 用户名
-		'DB_PWD'                => '123456',          // 密码
+		'DB_PWD'                => '',          // 密码
 		'DB_PORT'               => '3306',        // 端口
 		'DB_PREFIX'             => 'think_',    // 数据库表前缀
 		//密钥
@@ -18,13 +18,13 @@ return array(
 		
 		'TMPL_PARSE_STRING'  =>array(
 		
-				'__PUBLIC__' => '/rustcms/statics', // 更改默认的__PUBLIC__ 替换规则
+				'__PUBLIC__' => '/statics', // 更改默认的__PUBLIC__ 替换规则
 		
-				'__JS__' => '/rustcms/statics/js', // 增加新的JS类库路径替换规则
+				'__JS__' => '/statics/js', // 增加新的JS类库路径替换规则
 		
-				'__CSS__' => '/rustcms/statics/css', // 增加新的JS类库路径替换规则
+				'__CSS__' => '/statics/css', // 增加新的JS类库路径替换规则
 		
-				'__IMG__' => '/rustcms/statics/images', // 增加新的JS类库路径替换规则
+				'__IMG__' => '/statics/images', // 增加新的JS类库路径替换规则
 		
 				'__UPLOAD__' => '/Uploads', // 增加新的上传路径替换规则
 		

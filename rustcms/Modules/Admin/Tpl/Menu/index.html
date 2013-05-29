@@ -30,35 +30,37 @@
           <tr>
             <th width="80"><input type="text" value="{$vo.listorder}" name="listorder_{$vo.id}" class="input sid"></th>
             <th width="80">{$vo.id}</th>
-            <td>{$vo.name}</td>
+            <td>{$vo.title}</td>
             <th width="80">{$vo.display}</th>
-            <th width="200"><a href="__URL__/control/pid/{$vo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$vo.id}">修改</a>|<a href="">删除</a></th>
+            <th width="200"><a href="__URL__/control/pid/{$vo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$vo.id}/pid/{$vo.parentid}">修改</a>|<a href="">删除</a></th>
           </tr>
               <volist name="vo['items']"  id="jo">
                  <tr>
 		            <th width="80"><input type="text" value="{$jo.listorder}" name="listorder_{$jo.id}"  class="input sid"></th>
 		            <th width="80">{$jo.id}</th>
-		            <td>|—{$jo.name}</td>
+		            <td>|—{$jo.title}</td>
 		            <th width="80">{$jo.display}</th>
-		            <th width="200"><a href="__URL__/control/pid/{$jo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$jo.id}">修改</a>|<a href="">删除</a></th>
+		            <th width="200"><a href="__URL__/control/pid/{$jo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$jo.id}/pid/{$jo.parentid}">修改</a>|<a href="">删除</a></th>
 		          </tr>
 		             <volist name="jo['items']"  id="ko">
 		                 <tr>
 				            <th width="80"><input type="text" value="{$ko.listorder}" class="input sid" name="listorder_{$ko.id}" ></th>
 				            <th width="80">{$ko.id}</th>
-			                <td>|&nbsp;&nbsp;|—{$ko.name}</td>
+			                <td>|&nbsp;&nbsp;|—{$ko.title}</td>
 				            <th width="80">{$ko.display}</th>
-				            <th width="200"><a href="__URL__/control/pid/{$ko.id}">添加子菜单</a>|<a href="__URL__/control/id/{$ko.id}">修改</a>|<a href="">删除</a></th>
+				            <th width="200"><a href="__URL__/control/pid/{$ko.id}">添加子菜单</a>|<a href="__URL__/control/id/{$ko.id}/pid/{$ko.parentid}">修改</a>|<a href="">删除</a></th>
 				          </tr>
-				          <volist name="ko['items']"  id="mo">
-			                 <tr>
-					            <th width="80"><input type="text" value="{$mo.listorder}" class="input sid" name="listorder_{$mo.id}" ></th>
-					            <th width="80">{$mo.id}</th>
-				                <td>|&nbsp;&nbsp;|&nbsp;&nbsp;|—{$mo.name}</td>
-					            <th width="80">{$mo.display}</th>
-					            <th width="200"><a href="__URL__/control/pid/{$mo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$mo.id}">修改</a>|<a href="">删除</a></th>
-					         </tr>
-                       </volist>
+				         <if condition="$ko['items']  neq null">
+                               <?php foreach($ko['items']  as $mo){?>
+					                 <tr>
+							            <th width="80"><input type="text"   class="input sid" name="listorder_{$mo.id}" value="{$mo.listorder}" ></th>
+							            <th width="80">{$mo.id}</th>
+						                <td>|&nbsp;&nbsp;|&nbsp;&nbsp;|—{$mo.title}</td>
+							            <th width="80">{$mo.display}</th>
+							            <th width="200"><a href="__URL__/control/pid/{$mo.id}">添加子菜单</a>|<a href="__URL__/control/id/{$mo.id}/pid/{$mo.parentid}">修改</a>|<a href="">删除</a></th>
+							         </tr>
+                               <?php }?>
+                         </if>
                    </volist>
               </volist>
               

@@ -14,15 +14,12 @@ class MenuAction extends AdminAction {
 	public function control(){
 		$db=D('Menu');
 		$id=isset($_GET['id'])?$_GET['id']:'';
-		$pid=$db->get_parentid($id);
-		
-		$this->assign('pid',$pid);
-		if($id){
-		$where=array();
-		$where['id']=$_GET['id'];
-		$list=$db->where($where)->find();
+		$pid=isset($_GET['pid'])?$_GET['pid']:'';
+		if(!empty($id)){
+        $list=$db->getInfoById($id);
 		$this->assign('list',$list);
 		}
+		$this->assign('pid',$pid);
 		$menu=$db->menu_tree();
 		$this->assign('menu',$menu);
 		$this->display();
@@ -41,7 +38,7 @@ class MenuAction extends AdminAction {
 			$query=$db->save();	
 		    }else{
 			$listorder=$db->add();
-			$data['listorder']=$listorder;
+			$data['sort']=$listorder;
 			$where=array();
 			$where['id']=$listorder;
 			$query=$db->where($where)->save($data);

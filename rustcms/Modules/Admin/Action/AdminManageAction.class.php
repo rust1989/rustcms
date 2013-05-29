@@ -7,7 +7,7 @@ class AdminManageAction extends AdminAction {
     public function index(){
     	$menu=D('Common')->getChild();
     	$default=D('Common')->getFirstChild();
-    	$this->assign('menu',$default);
+    	$this->assign('default',$default);
     	$this->assign('menu',$menu);
         $this->display("Public:menu");
     }

@@ -18,14 +18,14 @@
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
           <tr>
             <th width="80">上一级</th>
-            <td><select name="parentid" class="input">
+            <td><select name="pid" class="input">
               <option value="0">作为一级菜单</option>
               <volist name="menu" id="vo">
-                  <option value='{$vo.id}'  <if condition="$vo['id'] eq $pid">selected='selected'</if>>{$vo.name}</option>
+                  <option value='{$vo.id}'  <if condition="$vo['id'] eq $pid">selected='selected'</if>>{$vo.title}</option>
                   <volist name="vo['items']"  id="jo">
-                      <option value='{$jo.id}' <if condition="$jo['id'] eq $pid">selected='selected'</if>>|-{$jo.name}</option>
+                      <option value='{$jo.id}' <if condition="$jo['id'] eq $pid">selected='selected'</if>>|-{$jo.title}</option>
                      <volist name="jo['items']" id="ko">
-                       <option value='{$ko.id}' <if condition="$ko['id'] eq $pid">selected='selected'</if>>|&nbsp;&nbsp;|-{$ko.name}</option>
+                       <option value='{$ko.id}' <if condition="$ko['id'] eq $pid">selected='selected'</if>>|&nbsp;&nbsp;|-{$ko.title}</option>
                      </volist>
                   </volist>
               </volist>
@@ -34,7 +34,7 @@
           </tr>
           <tr>
             <th width="80">名称</th>
-            <td><input type="text" id="name" name="name" class="input" value="{$list['name']}"><span class="error"></span></td>
+            <td><input type="text" id="title" name="title" class="input" value="{$list['name']}"><span class="error"></span></td>
           </tr>
           <tr>
             <th width="80">项目</th>
@@ -51,13 +51,13 @@
           <tr>
              <th>备注</th>
              <td>
-               <textarea name="description">{$list['description']}</textarea>
+               <textarea name="remark">{$list['description']}</textarea>
              </td>
           </tr>
           <tr>
             <th width="80">类型</th>
             <td>
-            <select name="pstatus" class="input">
+            <select name="status" class="input">
                <option value="1">---权限认证菜单---</option>
                 <option value="0">---仅作为菜单---</option>
             </select>

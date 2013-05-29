@@ -19,7 +19,7 @@
 	<div class="leftnav" style="float:left;">
 		<ul>
 			<li class="navleft"></li>
-            <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if($vo['parentid'] == 0): ?><li id="d<?php echo ($i); ?>"><a class="tabon" target="mcMenuFrame" href="/index.php/?g=<?php echo ($vo["app"]); ?>&m=<?php echo ($vo["control"]); ?>"><?php echo ($vo["name"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+            <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if($vo['pid'] == 0): ?><li id="d<?php echo ($i); ?>"><a class="tabon" target="mcMenuFrame" href="__APP__?g=<?php echo ($vo["app"]); ?>&m=<?php echo ($vo["control"]); ?>"><?php echo ($vo["title"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
 			<li class="navright"></li>
 		</ul>
 	</div>

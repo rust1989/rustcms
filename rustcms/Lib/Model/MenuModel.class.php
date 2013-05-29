@@ -14,15 +14,14 @@ class MenuModel extends CommonModel{
 		array('control','ucfirst',3,'function')
 	);
 	public function menu_list(){
-		if(F('Menu'))  $this->create_cache();
-		
+		if(!F('Menu')) 
+	   $this->create_cache();
 		return F('Menu');
 	}
 	public function create_cache(){
 		$db=M("Menu");
 		$list=$db->select();
 		F('Menu',$list);
-		return F('Menu');
 	}
 	/**
 	 * 获取子菜单
@@ -30,7 +29,7 @@ class MenuModel extends CommonModel{
 	public function get_child($parentid=0){
 		$db=M('Menu');
 		$parentid=(int)$parentid;
-		$result=$db->where(array('parentid'=>$parentid))->select();
+		$result=$db->where(array('pid'=>$parentid))->select();
 		
 		return $result;
 	}
@@ -72,7 +71,7 @@ class MenuModel extends CommonModel{
 	 * 检查子级层数
 	 */
 	public function check_level(){
-		$pid=$_POST['parentid'];
+		$pid=$_POST['pid'];
 		$list=$this->menu_list();
 		$arr=array();
 		foreach($list as $vo){
@@ -87,7 +86,7 @@ class MenuModel extends CommonModel{
 	 * 获取子级层数
 	 */
 	public function get_level(){
-		$pid=$_POST['parentid'];
+		$pid=$_POST['pid'];
 		if($pid==0) return 1;
 		$list=$this->menu_list();
 		$arr=array();
@@ -110,7 +109,18 @@ class MenuModel extends CommonModel{
 			if($vo['id']==$id)
 				$arr=$vo;
 		}
-		return $arr['parentid'];
+		
+		return $arr['id'];
 	}
-	
+	/**
+	 * 根据id查找栏目详细
+	 */
+	public function getInfoById($id=''){
+		if(empty($id)) return false;
+		$db=M(MODULE_NAME);
+		$where=array();
+		$where['id']=(int)$id;
+		$list=$db->where($where)->find();
+		return $list;
+	}
 }

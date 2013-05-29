@@ -39,14 +39,14 @@ function refreshMainFrame(url)
 <body>
 <div class="menu">
 <?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><dl>
-          <dt><a href="" onclick="return showHide('items0');" target="_self"><?php echo ($vo["name"]); ?></a></dt>
+          <dt><a href="javascript:void(0);" onclick="return showHide('items0');" target="_self"><?php echo ($vo["title"]); ?></a></dt>
            <dd id="items0" style="display:block;">
             <ul>
-                <?php if(is_array($vo['items'])): $i = 0; $__LIST__ = $vo['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i;?><li><a href='/index.php/?g=<?php echo ($jo["app"]); ?>&m=<?php echo ($jo["control"]); ?>&a=<?php echo ($jo["action"]); ?>'><?php echo ($jo["name"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                <?php if(is_array($vo['items'])): $i = 0; $__LIST__ = $vo['items'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jo): $mod = ($i % 2 );++$i;?><li><a href='__APP__?g=<?php echo ($jo["app"]); ?>&m=<?php echo ($jo["control"]); ?>&a=<?php echo ($jo["action"]); ?>'><?php echo ($jo["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
         </dd>
       </dl>
-       <script type="text/javascript">refreshMainFrame('/index.php/?g=<?php echo ($default["app"]); ?>&m=<?php echo ($default["control"]); ?>&a=<?php echo ($default["action"]); ?>');</script><?php endforeach; endif; else: echo "" ;endif; ?>
+       <script type="text/javascript">refreshMainFrame('__APP__?g=<?php echo ($default["app"]); ?>&m=<?php echo ($default["control"]); ?>&a=<?php echo ($default["action"]); ?>');</script><?php endforeach; endif; else: echo "" ;endif; ?>
 </div>
 </body>
 </html>
