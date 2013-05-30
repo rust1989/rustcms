@@ -1,0 +1,6 @@
+[ 2013-05-30T09:50:31+08:00 ] / | INFO: Tag[ app_begin ] --START--
+[ 2013-05-30T09:50:31+08:00 ] / | INFO: Run ReadHtmlCache Behavior [ RunTime:0.001128s ]
+[ 2013-05-30T09:50:31+08:00 ] / | INFO: Run CheckLang Behavior [ RunTime:0.001613s ]
+[ 2013-05-30T09:50:31+08:00 ] / | INFO: Tag[ app_begin ] --END-- [ RunTime:0.003020s ]
+[ 2013-05-30T09:50:31+08:00 ] / | SQL: SHOW COLUMNS FROM `think_model` [ RunTime:0.005721s ]
+[ 2013-05-30T09:50:31+08:00 ] / | SQL: SHOW COLUMNS FROM `think_category` [ RunTime:0.004724s ]
