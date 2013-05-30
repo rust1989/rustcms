@@ -8,49 +8,14 @@
 <script type="text/javascript" src="__JS__/jquery.adubytree.js"></script>
 <link rel="stylesheet" type="text/css" href="__CSS__/adubytree.css" />
 <script type="text/javascript">
-jQuery(document).ready(function(){ 
-
-var jsondata ={id : "node-0" , data: "C:",
-		children: [
-			{ id : "node-1" ,data: "node1",
-				children: [
-					{ id : "node-1-1" ,data: "node1.1",
-						children: [
-						{ id : "node-1-1-1" ,data: "node1.1.1"},
-						{ id : "node-1-1-2" ,data: "node1.1.2"}
-						]},
-					{id : "node-1-2" , data: "node1.2"},
-					{id : "node-1-3" ,data: "node1.3"}
-				] 
-			},
-			{id : "node-2" ,data: "node2"},
-			{id : "node-3", data: "node3",
-				children: [
-					{ id : "node-3-1" ,data: "node3.1",
-					children: [
-						{id : "node-3-1-1" , data: "node3.1.1",
-							children: [
-								{ id : "node-3-1-1-1" , data: "node3.1.1-1"},
-								{ id : "node-3-1-1-2" , data: "node3.1.1-2"}
-							] 
-						}
-					] 
-					}
-				] 
-			}
-		] 
-	};
-	
+jQuery(document).ready(function(){ 	
 	$("#infotable").AdubyTree({
-		data:jsondata,
+		data:<?php echo ($menu); ?>,
 		dataType:"json",
+		type:"simple",
 		checkboxes:true
 		});
-
-		
-	function getopenid(node){
-		alert(node.id);
-	}
+	<?php if(count($list ) > 0): if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>$("#infotable-ckbx-<?php echo ($vo["level"]); ?>-<?php echo ($vo["node_id"]); ?>-<?php echo ($vo["module"]); ?>").removeClass("checkBoxUncheck").addClass("checkBoxChecked checked");<?php endforeach; endif; else: echo "" ;endif; endif; ?>
 });
 
 </script>
@@ -58,20 +23,27 @@ var jsondata ={id : "node-0" , data: "C:",
 
 <body>
 <div class="wrap">
-  <div class="topNav">
-  </div>
-  <form id="myform" method="post" action="__URL__/save">
+  <form id="myform" method="post">
      <h3 class="title">权限列表</h3>
      <div id="infotable">
     </div>
     <div class="btnwrap">
        <div class="btn">
-         <input type="hidden" id="id" name="id" value="<?php echo ($list['id']); ?>" />
+         <input type="hidden" id="role_id" name="role_id" value="<?php echo ($role_id); ?>" />
          <input type="submit" name="submit" class="submit" value="" />
        </div>
     </div>
   </form>
 </div>
-
+<script type="text/javascript">
+   $(document).ready(function(){
+	   $("#myform").submit(function(){
+		   var str=$("#infotable").getChecked();
+           var action="__URL__/saveadminaccess/str/"+str;
+           $(this).attr("action",action);
+		   return true;
+	   });
+   });
+</script>
 </body>
 </html>

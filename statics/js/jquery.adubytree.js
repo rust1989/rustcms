@@ -536,6 +536,7 @@ $.fn.AdubyTree = function(config ) {
 			return this.selected;
 		},
 		setCookie : function(type){
+			
 			if(this.config.cookie){
 				var cookieValue="";
 				switch(type) {
@@ -761,6 +762,7 @@ $.fn.AdubyTree = function(config ) {
 				}
 				
 			}).live("dblclick", function (event) { 
+				 
 				if($(this).hasClass("node")){
 					var node_id=this.id.substring((_this.adubyTree.elemId+"-").length);
 					event.preventDefault(); event.stopPropagation();
@@ -833,6 +835,7 @@ $.fn.AdubyTree = function(config ) {
 						}
 					}
 				}else if($(this).hasClass("checkbox")){
+					
 					var node_id=this.id.substring((_this.adubyTree.elemId+"-ckbx-").length);
 					event.preventDefault(); event.stopPropagation();
 					if(_this.adubyTree.isClick === true){//judge is click

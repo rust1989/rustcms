@@ -41,13 +41,30 @@ class MenuModel extends CommonModel{
 		$level++;
 		foreach ($data as $vo){
 			$id=$vo['id'];
-			$app=$vo['app'];
-			$child=$this->menu_tree($id,$level);
 			$vo['display']=$this->chang_status($vo['display']);
 			$tree[$key]=$vo;
 			$child=$this->menu_tree($id,$level);
 			if($level<=C('MENU_LIMIT_LEVEL')){
 				$tree[$key]['items']=$child;
+			}
+			$key++;
+		}
+		return $tree;
+	}
+	/**
+	 * 栏目树
+	 */
+	public function menu_json($parentid,$level='1',$key='0'){
+		$data=$this->get_child($parentid);
+		$level++;
+		foreach ($data as $vo){
+			$id=$vo['id'];
+			$jo['id']=$vo['level']."-".$vo['id'].'-'.$vo['control'];
+			$jo['data']=$vo['title'];
+			$tree[$key]=$jo;
+			$child=$this->menu_json($id,$level);
+			if($level<=C('MENU_LIMIT_LEVEL')){
+				$tree[$key]['children']=$child;
 			}
 			$key++;
 		}

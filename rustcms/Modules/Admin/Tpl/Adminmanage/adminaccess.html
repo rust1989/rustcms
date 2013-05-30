@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<title>完美一刻后台管理系统</title>
+<load href='__CSS__/Admin/main.css' />
+<load href="__JS__/jquery.js" />
+<load href="__JS__/jquery.easing.1.3.js" />
+<load href="__JS__/jquery.adubytree.js" />
+<load href="__CSS__/adubytree.css"  />
+<script type="text/javascript">
+jQuery(document).ready(function(){ 	
+	$("#infotable").AdubyTree({
+		data:{$menu},
+		dataType:"json",
+		type:"simple",
+		checkboxes:true
+		});
+	<if condition="count($list ) gt 0">
+	<volist name="list" id="vo">
+	$("#infotable-ckbx-{$vo.level}-{$vo.node_id}-{$vo.module}").removeClass("checkBoxUncheck").addClass("checkBoxChecked checked");
+   </volist>
+   </if>
+});
+
+</script>
+</head>
+
+<body>
+<div class="wrap">
+  <form id="myform" method="post">
+     <h3 class="title">权限列表</h3>
+     <div id="infotable">
+    </div>
+    <div class="btnwrap">
+       <div class="btn">
+         <input type="hidden" id="role_id" name="role_id" value="{$role_id}" />
+         <input type="submit" name="submit" class="submit" value="" />
+       </div>
+    </div>
+  </form>
+</div>
+<script type="text/javascript">
+   $(document).ready(function(){
+	   $("#myform").submit(function(){
+		   var str=$("#infotable").getChecked();
+           var action="__URL__/saveadminaccess/str/"+str;
+           $(this).attr("action",action);
+		   return true;
+	   });
+   });
+</script>
+</body>
+</html>

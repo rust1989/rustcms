@@ -28,7 +28,7 @@
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
           <volist name="menu" id="vo">
           <tr>
-            <th width="80"><input type="text" value="{$vo.listorder}" name="listorder_{$vo.id}" class="input sid"></th>
+            <th width="80"><input type="text" value="{$vo.sort}" name="listorder_{$vo.id}" class="input sid"></th>
             <th width="80">{$vo.id}</th>
             <td>{$vo.title}</td>
             <th width="80">{$vo.display}</th>
@@ -36,7 +36,7 @@
           </tr>
               <volist name="vo['items']"  id="jo">
                  <tr>
-		            <th width="80"><input type="text" value="{$jo.listorder}" name="listorder_{$jo.id}"  class="input sid"></th>
+		            <th width="80"><input type="text" value="{$jo.sort}" name="listorder_{$jo.id}"  class="input sid"></th>
 		            <th width="80">{$jo.id}</th>
 		            <td>|—{$jo.title}</td>
 		            <th width="80">{$jo.display}</th>
@@ -44,7 +44,7 @@
 		          </tr>
 		             <volist name="jo['items']"  id="ko">
 		                 <tr>
-				            <th width="80"><input type="text" value="{$ko.listorder}" class="input sid" name="listorder_{$ko.id}" ></th>
+				            <th width="80"><input type="text" value="{$ko.sort}" class="input sid" name="listorder_{$ko.id}" ></th>
 				            <th width="80">{$ko.id}</th>
 			                <td>|&nbsp;&nbsp;|—{$ko.title}</td>
 				            <th width="80">{$ko.display}</th>
@@ -53,7 +53,7 @@
 				         <if condition="$ko['items']  neq null">
                                <?php foreach($ko['items']  as $mo){?>
 					                 <tr>
-							            <th width="80"><input type="text"   class="input sid" name="listorder_{$mo.id}" value="{$mo.listorder}" ></th>
+							            <th width="80"><input type="text"   class="input sid" name="listorder_{$mo.id}" value="{$mo.sort}" ></th>
 							            <th width="80">{$mo.id}</th>
 						                <td>|&nbsp;&nbsp;|&nbsp;&nbsp;|—{$mo.title}</td>
 							            <th width="80">{$mo.display}</th>
