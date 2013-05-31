@@ -1,15 +1,15 @@
-<html>
+<?php if (!defined('THINK_PATH')) exit();?><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <title>完美一刻后台管理系统</title>
-<load href='__CSS__/Admin/main.css' />
+<link rel="stylesheet" type="text/css" href="__CSS__/Admin/main.css" />
 </head>
 <body>
 <div class="wrap">
   <div class="topNav">
      <ul>
        <li><a href="__URL__" >管理员管理</a></li>
-       <li><a href="__URL__/control" class="active">添加管理员</a></li>
+       <li><a href="__URL__/usercontrol" class="active">添加管理员</a></li>
      </ul>
   </div>
   <form id="myform" method="post" action="__URL__/save">
@@ -18,17 +18,14 @@
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
           <tr>
             <th width="80">角色类型</th>
-            
             <td><select name="role_id" class="input">
-              <volist name="rlist" id="vo">
-                  <option value='{$vo.id}'  <if condition="$vo['id'] eq $list['role_id']">selected='selected'</if>>{$vo.name}</option>
-              </volist>
+              <?php if(is_array($rlist)): $i = 0; $__LIST__ = $rlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value='<?php echo ($vo["id"]); ?>'  <?php if($vo['id'] == $list['role_id']): ?>selected='selected'<?php endif; ?>><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
              </select>
              </td>
           </tr>
           <tr>
             <th width="80">用户名</th>
-            <td><input type="text" id="username" name="username" class="input" value="{$list['username']}"><span class="error"></span></td>
+            <td><input type="text" id="username" name="username" class="input" value="<?php echo ($list['username']); ?>"><span class="error"></span></td>
           </tr>
           <tr>
             <th width="80">密码</th>
@@ -51,7 +48,7 @@
     </div>
     <div class="btnwrap">
        <div class="btn">
-         <input type="hidden" id="id" name="id" value="{$list['id']}" />
+         <input type="hidden" id="id" name="id" value="<?php echo ($list['id']); ?>" />
          <input type="submit" name="submit" class="submit" value="" />
        </div>
     </div>

@@ -15,21 +15,35 @@ class AdminmanageAction extends AdminAction {
     	$db=D("User");
     	if(!empty($id)){
     		$list=$db->getInfoById($id);
+    		
     		$this->assign('list',$list);
     	}
     	$rlist=$db->getRoleList();
     	$this->assign('rlist',$rlist);
     	$this->display();
     }
+
     public function save(){
     	$db=D("User");
     	if(!$db->create()){
-    		$this->error($db->getError(),__URL__);
+    		$this->error($db->getError(),__URL__.'/control');
     	}else{
-    		if(!empty($_POST['id']))
-    		  $query=$db->save();
-    		else
-    		  $query=$db->add();
+    		
+    		if(!empty($_POST['id'])){
+    		  $db->save();
+    		  $data=array();
+    		  $where=array();
+    		  $where['user_id']=$id;
+    		  $data['role_id']=$_POST['role_id'];
+    		  $query=D("Role_user")->where($where)->save($data);
+    		}else{
+    		  $id=$db->add();
+    		  $data=array();
+    		  $data['user_id']=$id;
+    		  $data['role_id']=$_POST['role_id'];
+    		  $query=D("Role_user")->data($data)->add();
+    		}
+    		
     	}
     	if($query) $this->success('',__URL__);
     	else $this->error('',__URL__);
@@ -43,6 +57,7 @@ class AdminmanageAction extends AdminAction {
     	$id=isset($_GET['id'])?$_GET['id']:'';
     	if(!empty($id)){
     		$list=D('Role')->getInfoById($id);
+    		
     		$this->assign('list',$list);
     	}
     	$this->display();
@@ -86,6 +101,17 @@ class AdminmanageAction extends AdminAction {
     	$where['id']=$id;
     	$query=$db->where($where)->delete();
     	$query=M("Access")->where(array('role_id'=>$id))->delete();
+    	if($query) die('true');
+    	else die('false');
+    }
+    public function deluser(){
+    	$db=D('User');
+    	$id=isset($_POST['id'])?$_POST['id']:'';
+    	if(empty($id)) die('false');
+    	$where=array();
+    	$where['id']=$id;
+    	$query=$db->where($where)->delete();
+    	$query=M("Role_user")->where(array('user_id'=>$id))->delete();
     	if($query) die('true');
     	else die('false');
     }
